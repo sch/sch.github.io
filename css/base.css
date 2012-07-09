@@ -1,5 +1,23 @@
 * {
   margin: 0;
   padding: 0;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-  
+
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 3em;
+  border: solid 1em;
+}
+
+header {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
