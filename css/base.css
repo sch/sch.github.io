@@ -1,8 +1,9 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
+
+article, aside, footer, header, hgroup, nav, section { display: block; }
 
 html {
   height: 100%;
@@ -11,13 +12,68 @@ html {
 
 body {
   height: 100%;
-  padding: 3em;
-  border: solid 1em;
+  padding: 1em;
+  color: #6D6570;
+  background: #FFFCED;
+  border-top: solid 1em #FFDA9C;
+  font-size: 1em; line-height: 1.8;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+  
 }
+
+/* a { color: #F2B48F; } */
+/* a:visited {color: #FFD8A4; } */
 
 header {
-  width: 80%;
-  max-width: 800px;
+  text-align: center;
   margin: 0 auto;
+  max-width: 500em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #B0918C;
 }
 
+blockquote {
+  padding-left: 1em;
+  border-left: 1em solid;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1em;
+}
+nav li:first-child { margin-left: 0; }
+nav li:last-child { margin-right: 0; }
+
+li a { padding: 1em; }
+
+/*               */
+/* MEDIA QUERIES */
+/*               */
+
+@media all and (min-width: 30em){
+
+  body {
+    border: solid 1em #FFDA9C;
+    font-size: 150%;
+  }
+
+}
+
+/*                     */
+/* SOCIAL MEDIA COLORS */
+/*                     */
+
+.twitter { color: #0094C2}
+
+.tumblr { color: #325578; }
+
+.google { color: #DD4B39; }
+
+.vimeo { color: #456; }
+
+.github { color: #4183C4; }
