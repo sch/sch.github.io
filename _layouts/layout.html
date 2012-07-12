@@ -1,31 +1,19 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Adrian Schaedle" />
-    {% include title.html %}
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/base.css">
-    <link href="/css/webfonts/ss-social.css" rel="stylesheet" />
-    
-    {% include typekit.html %}
-    {% include google-analytics.html %}
-  </head>
-  <body>
-    <header>
-      <a href="/"><h1>ADRIAN SCHAEDLE</h1></a>
-      <nav>
-        <ul>
-          <li><a href="/stock">STOCK</a></li>
-          <li><a href="/flow">FLOW</a></li>
-          <li><a href="/about">ABOUT</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
-      <h2>{{ page.title }}</h2>
-      {{ content }}
-    </section>
-  </body>
-</html>
+---
+layout: head
+---
+</body>
+  <header>
+    <a href="/"><h1>ADRIAN SCHAEDLE</h1></a>
+    <nav>
+      <ul>
+        <li><a href="/stock">STOCK</a></li>
+        <li><a href="/flow">FLOW</a></li>
+        <li><a href="/about">ABOUT</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>{{ page.title }}</h2>
+    {{ content }}
+  </section>
+</body>
