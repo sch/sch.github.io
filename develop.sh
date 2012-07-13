@@ -6,5 +6,6 @@
 ##   -n            Dry-run; only show what would be done.
 ##
 
-sass --watch css/src/base.scss:css/base.css &
+sass --watch                    css/src/base.scss:css/base.css &
+sass --style compressed --watch resume &
 jekyll
