@@ -74,30 +74,32 @@ $big: 30em;
 
 * {
   margin: 0; padding: 0; position: relative;
-  // -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 html {
-  font-size: 100%; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -ms-text-size-adjust: 100%;
+  font-size: 100%;
   height: 100%;
-  background: $dominant;
 
   @media (min-width: 34em) {
     font-size: 140%;
   }
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 
 body {
-  font-family: "ff-tisa-web-pro",serif;
-  -webkit-font-feature-settings: "liga", "dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
+  background: $dominant;
+  // box-shadow: inset 0 0 25em rgba(100, 100, 100, 0.3);
+  font: 90%/1.5 "ff-tisa-web-pro", georgia, serif;font-family: "ff-tisa-web-pro",serif;
+  // -webkit-font-feature-settings: "liga", "dlig";
+  // -moz-font-feature-settings: "liga=1, dlig=1";
+  // -ms-font-feature-settings: "liga", "dlig";
+  // -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
-
+  line-height: 1.5;
 }
 
 h1 {
@@ -105,15 +107,17 @@ h1 {
   font-style: normal;
   font-weight: 200;
   font-size: 3rem;
-  line-height: 1.5;
+  line-height: 1;
+  margin-bottom: 1rem;
   // white-space: nowrap;
 }
 
 h2, h3{
   font-family: "facitweb",sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 h3 {
+  font-style: normal;
   font-weight: 300;
   color: $gray;
   font-size: 1rem;
@@ -126,6 +130,7 @@ p {
 
 
 
+
 header {
   font-family: "facitweb",sans-serif;
   color: $gray;
@@ -134,8 +139,8 @@ header {
   a {
     text-decoration: none;
     color: $gray;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
   a:hover {
     text-decoration: underline;
@@ -153,11 +158,17 @@ article {
   background: white;
   // background-image: url(brillant.png);
   background-attachment: fixed;
+  width: 100%;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 50em;
 }
 
 .wrap { /* Abstract our container */
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2.5rem 1rem;
   position: relative;
   max-width: 34em;
 }
@@ -166,5 +177,6 @@ article {
   @media (min-width: 80em) {
       position: absolute;
       left:-6em;
+      margin-bottom: 3em;
   }
 }
