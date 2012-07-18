@@ -1,6 +1,8 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-sass');
+
   // Project configuration.
   grunt.initConfig({
     meta: {
@@ -51,7 +53,16 @@ module.exports = function(grunt) {
         jQuery: true
       }
     },
-    uglify: {}
+    uglify: {},
+    sass: {
+		dist: {
+			src: [
+				'reset.scss',
+				'main.scss'
+			],
+			dest: 'combined.css'
+		}
+	}
   });
 
   // Default task.
