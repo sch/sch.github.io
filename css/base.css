@@ -38,9 +38,9 @@ html {
 body {
   min-height: 100%;
   padding: 1em;
-  color: #6D6570;
-  background: #FFFCED;
-  border-top: solid 1em #ffda9c;
+  color: #1A1A1A;
+  background: #FFFFFF;
+  border-top: solid 1em #E35B66;
   font-family: "facitweb", sans-serif;
   font-size: 1em;
   line-height: 1.6;
@@ -52,6 +52,7 @@ body {
   background: #FFDA9C; }
 
 a {
+  color: #E35B66;
   text-decoration: none; }
 
 a:hover, a:focus, a:visited {
@@ -66,7 +67,7 @@ header {
   margin: 0 auto;
   max-width: 500em;
   padding-bottom: 1em;
-  border-bottom: 1px solid #B0918C;
+  border-bottom: 1px solid #E35B66;
   margin-bottom: 1em;
   font-family: "soleil",sans-serif;
   font-style: normal;
@@ -99,13 +100,13 @@ li a {
 /*               */
 @media all and (min-width: 32em) {
   body {
-    border: solid 1em #FFDA9C; } }
+    border: solid 1em #E35B66; } }
 @media all and (min-width: 40em) {
   body {
     font-size: 120%; } }
 @media all and (min-width: 60em) {
   body {
-    font-size: 140%; } }
+    font-size: 150%; } }
 /*                     */
 /* SOCIAL MEDIA COLORS */
 /*                     */
@@ -131,12 +132,13 @@ article {
   max-width: 45em;
   margin: 0 auto; }
   article ul {
-    padding-left: 1em; }
+  padding-left: 1em;
+}
 
 code {
   display: block;
   overflow: auto;
   width: auto;
   word-wrap: normal;
-  background: #ffda9c;
+  background: #FCE2B0;
   padding: 1em; }
