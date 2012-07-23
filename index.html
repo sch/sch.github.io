@@ -8,10 +8,10 @@ layout: layout
     <ul>
       {% for post in site.posts limit:1 %}
       {% unless post.draft %}
-<p>This is the last thing I wrote:</p>
-      <li>
-	      <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
+      <p>This is the last thing I wrote:</p>
+      <h1>{{ post.title }}</h1>
+      <p><a href="{{ post.url }}">{{ post.date | date: "%B %e, %Y" }}</a></p>
+      {{post.content}}
       {% endunless %}
       {% endfor %}
     </ul>

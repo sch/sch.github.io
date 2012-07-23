@@ -37,7 +37,7 @@ html {
 
 body {
   min-height: 100%;
-  padding: 1em;
+  padding: 1.5em;
   color: #1A1A1A;
   background: #FFFFFF;
   border-top: solid 1em #E35B66;
@@ -59,8 +59,9 @@ a:hover, a:focus, a:visited {
   text-decoration: underline; }
 
 blockquote {
+  margin-top: 1em;
   padding-left: 1em;
-  border-left: 1em solid; }
+  border-left: 1em solid #F8E0B5; }
 
 header {
   text-align: center;
@@ -73,8 +74,9 @@ header {
   font-style: normal;
   font-weight: 500; }
 
-p {
-  padding: 1em 0 0; }
+p, h1, h2, h3 {
+  padding: 1em 0 0;
+}
 
 img {
   max-width: 100%; }
@@ -130,9 +132,10 @@ li a {
 
 article {
   max-width: 45em;
-  margin: 0 auto; }
+  margin: 0 auto;
   article ul {
   padding-left: 1em;
+  }
 }
 
 code {
