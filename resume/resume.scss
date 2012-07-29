@@ -180,3 +180,15 @@ section {
       margin-bottom: 3em;
   }
 }
+
+@media print {
+
+  html {
+    font-size: 80%;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")"; font-size: 90%;
+  }
+
+}
