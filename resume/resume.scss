@@ -183,8 +183,18 @@ section {
 
 @media print {
 
+  * {
+    width: 100%;
+  }
+
   html {
-    font-size: 80%;
+    font-size: 70%;
+  }
+
+  body:before{
+  
+    content: "Hey, you should really see the responsive and always-up-to-date version of this resume on the web at: adrian.schaedle.me/resume";
+    font-size: 100%;
   }
 
   a[href^="http"]:after {
