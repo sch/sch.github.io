@@ -1,3 +1,11 @@
+// @import "compass";
+@import "../css/src/grid";
+
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+$total-width: 100%;
+
 $border: rgba(253,165,145,1);
 $aname: rgba(253,165,145,1);
 $dominant: rgba(253,165,145,1);
@@ -169,6 +177,7 @@ section {
 .wrap { /* Abstract our container */
   margin: 0 auto;
   padding: 2.5rem 1rem;
+
   position: relative;
   max-width: 34em;
 }
@@ -192,8 +201,10 @@ section {
   }
 
   body:before{
-  
-    content: "Hey, you should really see the responsive and always-up-to-date version of this resume on the web at: adrian.schaedle.me/resume";
+
+    content: "Hey, you should really see the responsive and always-up-to-date
+
+    version of this resume on the web at: adrian.schaedle.me/resume";
     font-size: 100%;
   }
 

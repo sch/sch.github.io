@@ -3,7 +3,7 @@ layout: stock
 title: How To Build A Browser
 ---
 
-Honest question: how much engineering talent and raw hours would it take to build a web browser to today's spec?
+Honest question: how much engineering talent and how many raw hours would it take to build a web browser to today's spec?
 
 Setting aside for a moment that that spec is still in [a tug-of-war](http://lists.w3.org/Archives/Public/public-whatwg-archive/2012Jul/0119.html) between its parents, the [W3C](http://www.w3.org/) and the [WHATWG](http://www.whatwg.org/). I'd like you to go to the table of contents for the living standard of what HTML should be [here](http://www.whatwg.org/specs/web-apps/current-work/multipage/), and just give it a quick scroll. Especially if you are on a touch-screen and have that fancy momentum-scroll, do that thing where you slide your finger up and down really fast to whip though the document. There's a lot there.
 
