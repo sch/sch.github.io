@@ -1,19 +1,24 @@
-$darkYellow: #FFDA9C;
+$dark: #0F1922;
+$light: #ECDFD6;
+$bold: #8A1E2D;
+$secondary: #C3804B;
+$pairing: #DEAE5C;
+
 
 /* TYPEKIT */
 
-.wf-loading h1, 
-.wf-loading h2, 
-.wf-loading h3, 
-.wf-loading p, 
-.wf-loading code, 
-.wf-loading blockquote, 
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading code,
+.wf-loading blockquote,
 .wf-loading li{
     opacity: 0;
 }
 
 .wf-loading header {
-    background: url(data:image/gif;base64,)center center no-repeat;
+    background: url(data:image/gif;base64,) center center no-repeat;
 }
 
 h1, h2, h3, p, code, blockquote, li {
@@ -26,7 +31,7 @@ h1, h2, h3, p, code, blockquote, li {
 
 /* LAYOUT */
 
-/* Wanna bitch about this? Boom, Irish'd: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+// Wanna bitch about this? Boom, Irish'd: http://paulirish.com/2012/box-sizing-border-box-ftw
 * {
   margin: 0; padding: 0;
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -41,23 +46,30 @@ html {
 
 body {
   min-height: 100%;
-  padding: 1em;
-  color: #6D6570;
-  background: #FFFCED;
-  border-top: solid 1em $darkYellow;
+  padding: 1.618em;
+  color: $dark;
+  border-top: solid 1em $dark;
   font-family: "facitweb", sans-serif;
   font-size: 1em; line-height: 1.6;
   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
 }
-::selection { background: #FFDA9C; }
 
-a { text-decoration: none }
-a:hover, a:focus, a:visited { text-decoration: underline; }
+::selection { background: $secondary; }
+
+a {
+  text-decoration: none;
+  color: $bold;
+}
+a:hover, a:focus, a:visited {
+  text-decoration: underline;
+  color: $secondary;
+}
 
 blockquote {
   padding-left: 1em;
-  border-left: 1em solid;
+  border-left: 1em solid $bold;
+  font-style: italic;
 }
 
 header {
@@ -65,12 +77,12 @@ header {
   margin: 0 auto;
   max-width: 500em;
   padding-bottom: 1em;
-  border-bottom: 1px solid #B0918C;
+  border-bottom: 1px solid;
   margin-bottom: 1em;
 
-  font-family: "soleil",sans-serif;
-font-style: normal;
-font-weight: 500;
+  font-family: "soleil", sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
 
 p {
@@ -99,7 +111,7 @@ li a { padding: 1em; }
 @media all and (min-width: 32em){
 
   body {
-    border: solid 1em #FFDA9C;
+    border: solid 1em $bold;
   }
 
 }
@@ -143,12 +155,12 @@ article {
   margin: 0 auto;
   ul { padding-left: 1em; }
 }
-  
+
 code {
   display: block;
   overflow: auto;
   width: auto;
   word-wrap: normal;
-  background: $darkYellow;
+  background: $secondary;
   padding: 1em;
 }
