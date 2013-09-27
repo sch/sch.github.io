@@ -1,0 +1,166 @@
+$dark: #0F1922;
+$light: #ECDFD6;
+$bold: #8A1E2D;
+$secondary: #C3804B;
+$pairing: #DEAE5C;
+
+
+/* TYPEKIT */
+
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading code,
+.wf-loading blockquote,
+.wf-loading li{
+    opacity: 0;
+}
+
+.wf-loading header {
+    background: url(data:image/gif;base64,) center center no-repeat;
+}
+
+h1, h2, h3, p, code, blockquote, li {
+    opacity: 1;
+    visibility: visible; /* Old IE */
+    -webkit-transition: opacity 0.24s ease-in-out;
+       -moz-transition: opacity 0.24s ease-in-out;
+            transition: opacity 0.24s ease-in-out;
+}
+
+/* LAYOUT */
+
+// Wanna bitch about this? Boom, Irish'd: http://paulirish.com/2012/box-sizing-border-box-ftw
+* {
+  margin: 0; padding: 0;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+article, aside, footer, header, hgroup, nav, section { display: block; }
+
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding: 1.618em;
+  color: $dark;
+  border-top: solid 1em $dark;
+  font-family: "facitweb", sans-serif;
+  font-size: 1em; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection { background: $secondary; }
+
+a {
+  text-decoration: none;
+  color: $bold;
+}
+a:hover, a:focus, a:visited {
+  text-decoration: underline;
+  color: $secondary;
+}
+
+blockquote {
+  padding-left: 1em;
+  border-left: 1em solid $bold;
+  font-style: italic;
+}
+
+header {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid;
+  margin-bottom: 1em;
+
+  font-family: "soleil", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+p {
+  padding: 1em 0 0;
+}
+
+img { max-width: 100%; }
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1em;
+}
+nav li:first-child { margin-left: 0; }
+nav li:last-child { margin-right: 0; }
+
+li a { padding: 1em; }
+
+/*               */
+/* MEDIA QUERIES */
+/*               */
+
+@media all and (min-width: 32em){
+
+  body {
+    border: solid 1em $bold;
+  }
+
+}
+
+@media all and (min-width: 40em){
+
+  body {
+    font-size: 120%;
+  }
+
+}
+
+@media all and (min-width: 60em){
+
+  body {
+    font-size: 140%;
+  }
+
+}
+
+/*                     */
+/* SOCIAL MEDIA COLORS */
+/*                     */
+
+.twitter { color: #0094C2}
+
+.tumblr { color: #325578; }
+
+.google { color: #DD4B39; }
+
+.vimeo { color: #456; }
+
+.github { color: #4183C4; }
+
+.ss-icon { font-size: 2em; }
+
+// STOCK
+
+article {
+  max-width: 45em;
+  margin: 0 auto;
+  ul { padding-left: 1em; }
+}
+
+code {
+  display: block;
+  overflow: auto;
+  width: auto;
+  word-wrap: normal;
+  background: $secondary;
+  padding: 1em;
+}

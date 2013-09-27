@@ -1,0 +1,162 @@
+@import "compass"
+@import "compass/reset"
+
+$black: #0f1922
+$offwhite: #ecdfd6
+$red: #8a1e2d
+$orange: #c3804b
+$yellow: #deae5c
+
+$text: $black
+
+
+// TYPEKIT
+
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading code,
+.wf-loading blockquote,
+.wf-loading li
+  opacity: 0
+
+.wf-loading header
+  background: url(data:image/gif;base64,) center center no-repeat
+
+h1, h2, h3, p, code, blockquote, li
+  opacity: 1
+  visibility: visible
+  /* Old IE
+  -webkit-transition: opacity 0.2s ease-in-out
+  -moz-transition: opacity 0.2s ease-in-out
+  transition: opacity 0.2s ease-in-out
+
+
+// LAYOUT
+
+// Wanna bitch about this? Boom, Irish'd: http://paulirish.com/2012/box-sizing-border-box-ftw
+*
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+html
+  height: 100%
+  font-size: 100%
+
+body
+  min-height: 100%
+  padding: 1.618em
+  color: $black
+  border-top: solid 1em $offwhite
+  font-family: "facitweb", sans-serif
+  font-size: 1em
+  line-height: 1.6
+  -webkit-font-smoothing: antialiased
+  /* Fix for webkit rendering
+  -webkit-text-size-adjust: 100%
+
+::selection
+  background: $orange
+
+a
+  text-decoration: none
+  color: $red
+
+a:hover, a:focus, a:visited
+  text-decoration: underline
+  color: $orange
+
+blockquote
+  padding: 1.618em
+  border-left: 1em solid $red
+  font-style: italic
+  background-color: $offwhite
+
+header
+  text-align: center
+  margin: 0 auto
+  max-width: 500em
+  padding-bottom: 1em
+  border-bottom: 1px solid
+  margin-bottom: 1em
+  font-family: "soleil", sans-serif
+  font-style: normal
+  font-weight: 500
+
+p
+  padding: 1em 0 0
+
+img
+  max-width: 100%
+
+nav ul
+  list-style: none
+
+nav li
+  display: inline-block
+  margin: 0 1em
+
+nav li:first-child
+  margin-left: 0
+
+nav li:last-child
+  margin-right: 0
+
+li a
+  padding: 1em
+
+/*
+/* MEDIA QUERIES
+/*
+
+@media all and (min-width: 32em)
+  body
+    border: solid 1em $red
+
+@media all and (min-width: 40em)
+  body
+    font-size: 120%
+
+@media all and (min-width: 60em)
+  body
+    font-size: 140%
+
+/*
+/* SOCIAL MEDIA COLORS
+/*
+
+.twitter
+  color: #0094C2
+
+.tumblr
+  color: #325578
+
+.google
+  color: #DD4B39
+
+.vimeo
+  color: #456
+
+.github
+  color: #4183C4
+
+.ss-icon
+  font-size: 2em
+
+// STOCK
+
+article
+  max-width: 45em
+  margin: 0 auto
+  ul
+    padding-left: 1em
+
+code
+  display: block
+  overflow: auto
+  width: auto
+  word-wrap: normal
+  background: $orange
+  padding: 1em

@@ -1,14 +1,15 @@
-# Jekyll-Bootstrap
+# Jekyll Base #
 
-The quickest and most hassle-free way to get your new Jekyll powered website up and running.
-100% compatible with GitHub pages.
 
-<http://jekyllbootstrap.com>
+## Structure ##
 
-## Development
+The site is broken up into three main parts: stock, flow, and about
 
-Development is active! 
+### STOCK ###
 
-## License
+Stock will be a traditional block, with the exception that the page will be
+generated so that past edits can be pulled out of the git archive.
 
-[Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+### FLOW ###
+
+A chunk of javascript that will pull in the last x items from twitter, tumblr, 
