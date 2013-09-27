@@ -1,19 +1,5 @@
 ---
-layout: layout
+layout: skeleton
 ---
 
-
-<div class="content">
-  <div class="related">
-    <ul>
-      {% for post in site.posts limit:1 %}
-      {% unless post.draft %}
-      <p>This is the last thing I wrote:</p>
-      <h1>{{ post.title }}</h1>
-      <p><a href="{{ post.url }}">{{ post.date | date: "%B %e, %Y" }}</a></p>
-      {{post.content}}
-      {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+sup
