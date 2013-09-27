@@ -1,11 +1,14 @@
 @import "compass"
 @import "compass/reset"
 
-$dark: #0f1922
-$light: #ecdfd6
-$bold: #8a1e2d
-$secondary: #c3804b
-$pairing: #deae5c
+$black: #0f1922
+$offwhite: #ecdfd6
+$red: #8a1e2d
+$orange: #c3804b
+$yellow: #deae5c
+
+$text = $black
+
 
 // TYPEKIT
 
@@ -25,9 +28,9 @@ h1, h2, h3, p, code, blockquote, li
   opacity: 1
   visibility: visible
   /* Old IE
-  -webkit-transition: opacity 0.24s ease-in-out
-  -moz-transition: opacity 0.24s ease-in-out
-  transition: opacity 0.24s ease-in-out
+  -webkit-transition: opacity 0.2s ease-in-out
+  -moz-transition: opacity 0.2s ease-in-out
+  transition: opacity 0.2s ease-in-out
 
 
 // LAYOUT
@@ -45,8 +48,8 @@ html
 body
   min-height: 100%
   padding: 1.618em
-  color: $dark
-  border-top: solid 1em $light
+  color: $black
+  border-top: solid 1em $offwhite
   font-family: "facitweb", sans-serif
   font-size: 1em
   line-height: 1.6
@@ -55,21 +58,21 @@ body
   -webkit-text-size-adjust: 100%
 
 ::selection
-  background: $secondary
+  background: $orange
 
 a
   text-decoration: none
-  color: $bold
+  color: $red
 
 a:hover, a:focus, a:visited
   text-decoration: underline
-  color: $secondary
+  color: $orange
 
 blockquote
   padding: 1.618em
-  border-left: 1em solid $bold
+  border-left: 1em solid $red
   font-style: italic
-  background-color: $light
+  background-color: $offwhite
 
 header
   text-align: center
@@ -110,7 +113,7 @@ li a
 
 @media all and (min-width: 32em)
   body
-    border: solid 1em $bold
+    border: solid 1em $red
 
 @media all and (min-width: 40em)
   body
@@ -155,5 +158,5 @@ code
   overflow: auto
   width: auto
   word-wrap: normal
-  background: $secondary
+  background: $orange
   padding: 1em

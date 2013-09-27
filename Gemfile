@@ -1,3 +1,7 @@
 source "http://rubygems.org"
 
-gem 'jekyll-assets'
+gem "jekyll"
+
+gem "stringex"
+
+gem "jekyll-assets"
