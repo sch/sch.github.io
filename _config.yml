@@ -3,3 +3,7 @@ permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
 debug: false
 pygments: true
+
+typekit: zal0bho
+analytics:
+  google: UA-33235804-1

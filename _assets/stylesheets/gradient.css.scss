@@ -1,0 +1,60 @@
+@import "typekit_safeguard";
+
+$gradient-start: #DE6262;
+$gradient-end: #FFB88C;
+
+$essay-text: "essay-text";
+$wayfinding: "wayfinding-sans";
+$soleil: "soleil";
+$font-branding: $soleil;
+
+$text-color: #444;
+
+
+%font {
+  font-family: $font-branding;
+  font-weight: 400;
+  color: $text-color;
+}
+
+body {
+  margin: 0;
+}
+
+.lip {
+  height: 0.618rem;
+  background: linear-gradient(90deg, $gradient-start 10%, $gradient-end 90%)
+}
+
+.page {
+  @extend %font;
+  background-color: white;
+  padding-left: 0.618em;
+  padding-right: 0.618em;
+}
+
+.greetings {
+  margin-top: 1.618em;
+  font-size: 1.618rem;
+}
+
+.pill {
+  color: white;
+  background-color: $text-color;
+  border-radius: 0.12em;
+  padding: 0.2em 0.4em;
+  text-decoration: none;
+}
+
+.fill-pink {
+  background-color: $gradient-start;
+}
+
+.fill-orange {
+  background-color: $gradient-end;
+}
+
+.center {
+  text-align: center;
+}
+

@@ -1,0 +1,31 @@
+<!--
+Well hey, thanks for viewing source!
+
+You can get a better sense about how this site was constructed by visiting the repo on Github:
+
+https://github.com/sch/sch.github.com
+
+Everything you see is hosted (for free!) on Github Pages using the Jekyll static site generator. Thanks Github, for letting developers game this system like this!
+-->
+
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Adrian Schaedle" />
+    {% include title.html %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% stylesheet gradient %}
+
+    {% include typekit.html %}
+    {% include google-analytics.html %}
+  </head>
+  <body>
+    <div class="lip"></div>
+    <div class="page">
+      {{ content }}
+    </div>
+  </body>
+</html>

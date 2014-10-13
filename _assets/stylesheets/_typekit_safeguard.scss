@@ -1,0 +1,22 @@
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading code,
+.wf-loading blockquote,
+.wf-loading li {
+  opacity: 0;
+}
+
+.wf-loading header {
+  background: url(data:image/gif;base64,) center center no-repeat;
+}
+
+h1, h2, h3, p, code, blockquote, li {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+

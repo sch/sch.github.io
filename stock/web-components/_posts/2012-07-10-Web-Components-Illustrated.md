@@ -14,7 +14,6 @@ Some of you may be fresh off of seeing the Google I/O conference talk, others ma
 
 Custom Elements
 
-{% include huh.html %}
 
 
 
