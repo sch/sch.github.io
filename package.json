@@ -10,9 +10,6 @@
       "email": "schaedles@gmail.com"
     }
   ],
-  // "bin": {
-  //   "http-server": "./bin/http-server"
-  // },
   "scripts": {
     "start": "node ./bin/http-server",
     "test": "vows --spec --isolate",
