@@ -2,7 +2,7 @@ markdown: rdiscount
 permalink: /:year/:month/:day/:title
 rdiscount extensions: [smart]
 debug: false
-pygments: true
+highlighter: rouge
 
 typekit: zal0bho
 analytics:
