@@ -1,4 +1,4 @@
-@import "typekit_safeguard";
+@import "./components/Project";
 
 $gradient-start: #DE6262;
 $gradient-end: #FFB88C;
@@ -6,10 +6,11 @@ $gradient-end: #FFB88C;
 $essay-text: "essay-text";
 $wayfinding: "wayfinding-sans";
 $soleil: "soleil";
-$font-branding: $soleil;
+$font-serif: "Iowan", "Georgia", serif;
+$font-monospace: "Inconsolata LGC", monospace;
+$font-branding: $font-serif;
 
 $text-color: #444;
-
 
 %font {
   font-family: $font-branding;
@@ -17,25 +18,80 @@ $text-color: #444;
   color: $text-color;
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+  font-size: 20px;
 }
 
-.lip {
-  height: 0.618rem;
+.Lip {
+  min-height: 0.618rem;
   background: linear-gradient(90deg, $gradient-start 10%, $gradient-end 90%)
 }
 
-.page {
+.Page {
+  height: 100vh;
   @extend %font;
-  background-color: white;
-  padding-left: 0.618em;
-  padding-right: 0.618em;
+  padding-left: 1.618em;
+  padding-right: 1.618em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60em;
 }
+
+.Page-logo {
+  margin-top: 1.618em;
+  float: left;
+}
+
+.Page-menu {
+  margin-top: 1.618em;
+  float: right;
+}
+
+.Page-body {
+  margin-top: 1.618em;
+  clear: both;
+}
+
+.Name {
+  font-weight: bold;
+}
+
+.Menu {
+  position: relative;
+  &:hover {
+    .Menu-button {
+      opacity: 0;
+    }
+
+    .Menu-contents {
+      opacity: 1;
+    }
+  }
+}
+
+.Menu-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.Menu-contents {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
 
 .greetings {
   margin-top: 1.618em;
-  font-size: 1.618rem;
 }
 
 .pill {
@@ -58,3 +114,11 @@ body {
   text-align: center;
 }
 
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+p {
+  line-height: 1.6;
+}

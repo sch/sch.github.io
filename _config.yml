@@ -1,9 +1,15 @@
-markdown: rdiscount
 permalink: /:year/:month/:day/:title
-rdiscount extensions: [smart]
 debug: false
-highlighter: rouge
+timezone: America/New_York
 
 typekit: zal0bho
 analytics:
   google: UA-33235804-1
+
+defaults:
+  -
+    scope:
+      type: "posts"
+    values:
+      layout: "skeleton"
+      author: "Adrian Schaedle"
