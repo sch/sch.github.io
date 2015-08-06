@@ -1213,7 +1213,7 @@ function(module, exports, __webpack_require__) {
 /***/
 function(module, exports, __webpack_require__) {
 
-    eval("module.exports = \"<p>Created an customer-facing dashboard based on React, D3, and a slew of\\nElasticsearch projections. Joined the team working on The Big Angular Rewrite,\\nout of which came a great <a href=\\\"https://github.com/bvaughn/angular-form-for\\\">form abstraction\\nlibrary</a>, a versioned component\\nstyle packaging system, and a feature flag library. Also some Rails work\\naround asyncronous site data exports, as well as a nice analytics abstraction\\nthat can fire events to several backends at once.</p>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./scripts/descriptions/recurly.markdown\n ** module id = 23\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./scripts/descriptions/recurly.markdown?");
+    eval("module.exports = \"<p>Created an customer-facing dashboard using on React, D3, and Elasticsearch. RedesignedbJoined the team working on The Big Angular Rewrite,\\nout of which came a great <a href=\\\"https://github.com/bvaughn/angular-form-for\\\">form abstraction\\nlibrary</a>, a versioned component\\nstyle packaging system, and a feature flag library. Also some Rails work\\naround asyncronous site data exports, as well as a nice analytics abstraction\\nthat can fire events to several backends at once.</p>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./scripts/descriptions/recurly.markdown\n ** module id = 23\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./scripts/descriptions/recurly.markdown?");
 
     /***/
 },
