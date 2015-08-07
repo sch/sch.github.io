@@ -1,5 +1,5 @@
 I'm a programmer who loves to build user interfaces. I take inspiration from
-functional programming, Xerox Parc research, physics, and biology;
+functional programming, Xerox Parc research, physics, and biology.
 
 I've worked with dynamic object-oriented languages (Python, Ruby, Javascript),
 dynamic functional languages (Clojure, Racket), and statically typed functional

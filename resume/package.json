@@ -2,7 +2,7 @@
   "name": "adrian-resume",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack -p webpack-build.config.js"
+    "build": "webpack -p --config webpack-build.config.js"
   },
   "dependencies": {
     "react": "^0.13.0",

@@ -31,3 +31,5 @@ config.plugins = [
 ];
 
 config.resolve = {extensions: ["", ".js", ".jsx"]};
+
+config.entry = ["./src/index"];

@@ -5,11 +5,10 @@ var config = module.exports = require("./webpack.config");
 
 config.devtool = "eval";
 
-config.entry = [
+config.entry = config.entry.concat([
   "webpack-dev-server/client?http://localhost:3000",
-  "webpack/hot/only-dev-server",
-  "./src/index"
-];
+  "webpack/hot/only-dev-server"
+]);
 
 config.output = {
   path: path.join(__dirname, "dist"),
