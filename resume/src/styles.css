@@ -1,6 +1,18 @@
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+
 body {
   margin: 0;
 }
+
 
 .Arrange {
   -webkit-box-sizing: border-box;
@@ -69,7 +81,7 @@ body {
   margin-bottom: 1.618em;
 }
 
-@media screen and (min-width: 40em) {
+@media (min-width: 38em) {
   .Resume-contact {
     box-sizing: border-box;
     float: left;
@@ -97,7 +109,7 @@ body {
 
 .Prose {
   line-height: 1.45;
-  max-width: 34em;
+  /* max-width: 34em; */
 }
 
 
@@ -109,26 +121,22 @@ body {
   line-height: 1;
 }
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
+@media (min-width: 38em) {
+  .Grouping-title {
+    box-sizing: border-box;
+    padding-left: 1rem;
+    margin-left: 33%;
+  }
 }
 
 @media screen and (min-width: 60em) {
-  .Grouping {
-  }
-
   .Grouping-title {
     float: left;
     width: 25%;
-    box-sizing: border-box;
     margin-top: 0;
-    position: -webkit-sticky;
+    margin-left: 0;
+    position: sticky;
+    text-align: left;
     top: 0.618rem;
   }
 
@@ -167,14 +175,14 @@ body {
   white-space: nowrap;
 }
 
-@media screen and (min-width: 40em) {
+@media (min-width: 38em) {
   .Job-dates {
     box-sizing: border-box;
     float: left;
     width: 33.333%;
     padding-top: 0.4em;
     padding-right: 1rem;
-    position: -webkit-sticky;
+    position: sticky;
     top: 0.618rem;
     text-align: right;
   }
@@ -211,8 +219,73 @@ body {
   white-space: nowrap;
 }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 38em) {
   .Dates {
     display: inline-block;
+  }
+}
+
+@media print {
+  *,
+  *:before,
+  *:after,
+  *:first-letter,
+  *:first-line {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html {
+    font-size: 9pt;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
   }
 }
