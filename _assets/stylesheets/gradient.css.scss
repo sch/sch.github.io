@@ -1,19 +1,8 @@
 @import "./components/Project";
+@import "./typography";
 
 $gradient-start: #DE6262;
 $gradient-end: #FFB88C;
-
-$essay-text: "essay-text";
-$wayfinding: "wayfinding-sans";
-$soleil: "soleil";
-$chaparral: "chaparral-pro-display";
-$proxima-nova: "proxima-nova";
-$font-meta-sans: "ff-meta-web-pro";
-$font-meta-serif: "ff-meta-serif-web-pro";
-$font-serif: $font-meta-serif, "Iowan", "Georgia", serif;
-$font-sans-serif: $font-meta-sans, sans-serif;
-$font-monospace: "Inconsolata LGC", monospace;
-$font-branding: $font-serif;
 
 $text-color: #444;
 
@@ -33,10 +22,20 @@ body {
 
 p {
   max-width: 36em;
+  line-height: 1.45;
 }
 
 blockquote {
   font-family: $font-sans-serif;
+}
+
+a {
+  color: $gradient-start;
+}
+
+a:hover,
+a:visited{
+  color: $gradient-end;
 }
 
 .Lip {
@@ -51,7 +50,7 @@ blockquote {
   padding-right: 1.618em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 60em;
+  max-width: 40rem;
 }
 
 .Page-logo {
@@ -68,6 +67,14 @@ blockquote {
 .Page-body {
   margin-top: 1.618em;
   clear: both;
+}
+
+.Page-container {
+  max-width: 60em;
+}
+
+.u-textSans {
+  font-family: $font-sans-serif;
 }
 
 .Name {

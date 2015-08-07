@@ -1,3 +1,5 @@
+@import "../typography";
+
 .Projects {
 }
 
@@ -8,6 +10,7 @@
 .Project-title {
   font-weight: bold;
   margin-bottom: 0.618em;
+  font-family: $font-sans-serif;
 }
 
 .Project-description {
