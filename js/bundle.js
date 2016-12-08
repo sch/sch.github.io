@@ -346,7 +346,7 @@ return {
 let addedCss = false;
 function addCss () {
 	var style = document.createElement( 'style' );
-	style.textContent = "                                                                                                                                                                                                                                                                                                 \n.CheckboxCanvasContainer[svelte-203525480], [svelte-203525480] .CheckboxCanvasContainer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n}\n\n.CheckboxCanvas[svelte-203525480], [svelte-203525480] .CheckboxCanvas {\n  margin: 1em;\n}\n\n.CheckboxCanvas  div[svelte-203525480], .CheckboxCanvas  [svelte-203525480] div, .CheckboxCanvas[svelte-203525480]  div, [svelte-203525480] .CheckboxCanvas  div {\n  margin: 0;\n  line-height: 0;\n}\n\n.CheckboxCanvas  input[svelte-203525480], .CheckboxCanvas  [svelte-203525480] input, .CheckboxCanvas[svelte-203525480]  input, [svelte-203525480] .CheckboxCanvas  input {\n  margin: 1px;\n  padding: 0;\n  line-height: 0;\n}\n";
+	style.textContent = "                                                                                                                                                                                                                                                                                                \n.CheckboxCanvasContainer[svelte-340746504], [svelte-340746504] .CheckboxCanvasContainer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n}\n\n.CheckboxCanvas[svelte-340746504], [svelte-340746504] .CheckboxCanvas {\n  margin: 1em;\n}\n\n.CheckboxCanvas  div[svelte-340746504], .CheckboxCanvas  [svelte-340746504] div, .CheckboxCanvas[svelte-340746504]  div, [svelte-340746504] .CheckboxCanvas  div {\n  margin: 0;\n  line-height: 0;\n}\n\n.CheckboxCanvas  input[svelte-340746504], .CheckboxCanvas  [svelte-340746504] input, .CheckboxCanvas[svelte-340746504]  input, [svelte-340746504] .CheckboxCanvas  input {\n  margin: 1px;\n  padding: 0;\n  line-height: 0;\n}\n";
 	document.head.appendChild( style );
 
 	addedCss = true;
@@ -354,7 +354,7 @@ function addCss () {
 
 function renderMainFragment ( root, component, target ) {
 	var div = document.createElement( 'div' );
-	div.setAttribute( 'svelte-203525480', '' );
+	div.setAttribute( 'svelte-340746504', '' );
 	div.className = "CheckboxCanvasContainer";
 	
 	var div1 = document.createElement( 'div' );
