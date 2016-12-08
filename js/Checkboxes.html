@@ -1,0 +1,76 @@
+<div class="CheckboxCanvasContainer">
+  <div class="CheckboxCanvas">
+    {{#each canvas as row, rowIndex}}
+      <div>
+        {{#each row as column, columnIndex}}
+          <input type="checkbox" checked="{{column}}"/>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<style>
+.CheckboxCanvasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.CheckboxCanvas {
+  margin: 1em;
+}
+
+.CheckboxCanvas div {
+  margin: 0;
+  line-height: 0;
+}
+
+.CheckboxCanvas input {
+  margin: 1px;
+  padding: 0;
+  line-height: 0;
+}
+</style>
+
+<script>
+import { drawText, emptyCanvas, createPoint } from "./canvas"
+
+export default {
+  data () {
+    return {
+      width: 20,
+      height: 20,
+      text: "adrian schaedle"
+    }
+  },
+
+  onrender () {
+    window.addEventListener("resize", this.resize.bind(this))
+    this.resize()
+  },
+
+  onteardown () {
+    window.removeEventListener("resize", this.resize)
+  },
+
+  computed: {
+    canvas: (width, height, text) => {
+      let canvas = drawText(emptyCanvas(width, height), "adrian")
+      canvas = drawText(canvas, "schaedle", createPoint(0, 7))
+      return canvas
+    }
+  },
+
+  methods: {
+    resize () {
+      this.set({
+        width: Math.floor(window.innerWidth / 15),
+        height: Math.floor(window.innerHeight / 15)
+      })
+    }
+  }
+}
+</script>
