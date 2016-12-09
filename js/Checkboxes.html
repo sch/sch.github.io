@@ -2,7 +2,9 @@
   {{#each canvas as row, rowIndex}}
   <div>
     {{#each row as column, columnIndex}}
-    <input type="checkbox" checked={{column}} />
+    <label>
+      <input type="checkbox" checked={{column}} />
+    </label>
     {{/each}}
   </div>
   {{/each}}
@@ -20,10 +22,14 @@
   line-height: 0;
 }
 
+.CheckboxCanvas label {
+  padding: 1px;
+  display: inline-block;
+}
+
 .CheckboxCanvas input {
-  margin: 1px;
+  margin: 0;
   padding: 0;
-  line-height: 0;
 }
 </style>
 
