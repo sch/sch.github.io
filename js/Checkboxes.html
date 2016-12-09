@@ -39,7 +39,7 @@
 import { drawText, emptyCanvas, createPoint } from "./canvas"
 
 export default {
-  data () {
+  data: function () {
     return {
       width: 20,
       height: 20,
@@ -47,25 +47,25 @@ export default {
     }
   },
 
-  onrender () {
+  onrender: function () {
     window.addEventListener("resize", this.resize.bind(this))
     this.resize()
   },
 
-  onteardown () {
+  onteardown: function () {
     window.removeEventListener("resize", this.resize)
   },
 
   computed: {
-    canvas: (width, height, text) => {
-      let canvas = drawText(emptyCanvas(width, height), "adrian")
+    canvas: function (width, height, text) {
+      var canvas = drawText(emptyCanvas(width, height), "adrian")
       canvas = drawText(canvas, "schaedle", createPoint(0, 7))
       return canvas
     }
   },
 
   methods: {
-    resize () {
+    resize: function () {
       this.set({
         width: Math.floor(window.innerWidth / 15),
         height: Math.floor(window.innerHeight / 15)

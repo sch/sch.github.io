@@ -32,7 +32,8 @@ function isWithinBounds (canvas, point) {
   return point.x < width(canvas) && point.y < height(canvas)
 }
 
-function combineCanvas (bottomCanvas, topCanvas, offset = createPoint(0, 0)) {
+function combineCanvas (bottomCanvas, topCanvas, offset) {
+  offset = offset || createPoint(0, 0)
   for (var row = 0; row < topCanvas.length; row++) {
     for (var column = 0; column < topCanvas[row].length; column++) {
       if (isWithinBounds(bottomCanvas, createPoint(column + offset.x, row + offset.y))) {
@@ -43,7 +44,7 @@ function combineCanvas (bottomCanvas, topCanvas, offset = createPoint(0, 0)) {
   return bottomCanvas
 }
 
-function flipBit (canvas, x, y) {
+export function flipBit (canvas, x, y) {
   canvas[y][x] = true
 }
 
@@ -54,11 +55,12 @@ function letterCanvas (letter) {
   return ALPHABET_MAP[letter[0].toUpperCase()]
 }
 
-export function drawText (canvas, text, offset = ORIGIN) {
-  let xOffset = 0 + offset.x
+export function drawText (canvas, text, offset) {
+  offset = offset || ORIGIN
+  var xOffset = 0 + offset.x
   return text.split("").reduce(function (canvas, letter) {
-    const newOffset = createPoint(xOffset, offset.y)
-    const newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset)
+    var newOffset = createPoint(xOffset, offset.y)
+    var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset)
     xOffset += width(letterCanvas(letter)) + 1
     return newCanvas
   }, canvas)
@@ -70,14 +72,14 @@ function textCanvas (text) {
 }
 
 function beside (leftCanvas, rightCanvas) {
-  const newWidth = width(leftCanvas) + width(rightCanvas)
-  const newHeight = height(leftCanvas) + height(rightCanvas)
-  const newCanvas = emptyCanvas(newWidth, newHeight)
+  var newWidth = width(leftCanvas) + width(rightCanvas)
+  var newHeight = height(leftCanvas) + height(rightCanvas)
+  var newCanvas = emptyCanvas(newWidth, newHeight)
   return combineCanvas(combineCanvas(newCanvas, leftCanvas), rightCanvas, createPoint(width(leftCanvas), 0))
 }
 
 function padCanvas (canvas, side, amount) {
   // assume side is "left"
-  const SIDE = "left"
+  var SIDE = "left"
   return canvas
 }
