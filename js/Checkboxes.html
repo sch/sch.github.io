@@ -1,26 +1,18 @@
-<div class="CheckboxCanvasContainer">
-  <div class="CheckboxCanvas">
-    {{#each canvas as row, rowIndex}}
-      <div>
-        {{#each row as column, columnIndex}}
-          <input type="checkbox" checked={{column}} />
-        {{/each}}
-      </div>
+<div ref:element class="CheckboxCanvas">
+  {{#each canvas as row, rowIndex}}
+  <div>
+    {{#each row as column, columnIndex}}
+    <input type="checkbox" checked={{column}} />
     {{/each}}
   </div>
+  {{/each}}
 </div>
 
 <style>
-.CheckboxCanvasContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-
 .CheckboxCanvas {
-  margin: 1em;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 1em;
 }
 
 .CheckboxCanvas div {
@@ -36,13 +28,32 @@
 </style>
 
 <script>
-import { drawText, emptyCanvas, createPoint } from "./canvas"
+import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
+import throttle from "lodash.throttle"
+
+const CHECKBOX_SIZE = 14
+
+function scale (pixelSize) {
+  return Math.floor(pixelSize / CHECKBOX_SIZE)
+}
+
+function getDimensions (element) {
+  return {
+    width: scale(element.clientWidth),
+    height: scale(window.innerHeight) - 6,
+  }
+}
+
+function randomInRange (upperLimit) {
+  return Math.floor(Math.random() * upperLimit)
+}
 
 export default {
   data: function () {
     return {
       width: 20,
       height: 20,
+      randomPosition: createPoint(5, 5),
       text: "adrian schaedle"
     }
   },
@@ -57,20 +68,17 @@ export default {
   },
 
   computed: {
-    canvas: function (width, height, text) {
-      var canvas = drawText(emptyCanvas(width, height), "adrian")
-      canvas = drawText(canvas, "schaedle", createPoint(0, 7))
+    canvas: function (width, height, text, randomPosition) {
+      var canvas = drawText(emptyCanvas(width, height), "adrian", createPoint(2, 2))
+      canvas = drawText(canvas, "schaedle", createPoint(2, 9))
       return canvas
     }
   },
 
   methods: {
-    resize: function () {
-      this.set({
-        width: Math.floor(window.innerWidth / 15),
-        height: Math.floor(window.innerHeight / 15)
-      })
-    }
+    resize: throttle(function () {
+      this.set(getDimensions(this.refs.element))
+    }, 500),
   }
 }
 </script>
