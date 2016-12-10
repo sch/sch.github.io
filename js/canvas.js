@@ -45,7 +45,9 @@ function combineCanvas (bottomCanvas, topCanvas, offset) {
 }
 
 export function flipBit (canvas, x, y) {
-  canvas[y][x] = true
+  if (isWithinBounds(canvas, createPoint(x, y))) {
+    canvas[y][x] = true
+  }
 }
 
 function letterCanvas (letter) {

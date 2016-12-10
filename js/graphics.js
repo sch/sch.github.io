@@ -109,7 +109,6 @@ const Directions = {
  * return the next positions for a point within the dimensions's bounds
  */
 export function randomWalk (point, dimensions) {
-  console.log("point!", point)
   var nextDirection = Math.floor(Math.random() * 4)
 
   if (nextDirection === Directions.UP && point.y > 0) {
