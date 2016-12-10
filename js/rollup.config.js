@@ -1,8 +1,9 @@
-import svelte from 'rollup-plugin-svelte';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify';
-import buble from 'rollup-plugin-buble';
+import svelte from "rollup-plugin-svelte";
+import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import uglify from "rollup-plugin-uglify";
+import buble from "rollup-plugin-buble";
+import filesize from "rollup-plugin-bundle-size"
 
 var plugins = [
   svelte(),
@@ -12,13 +13,13 @@ var plugins = [
 ]
 
 if (process.env.NODE_ENV === "production") {
-  plugins.push(uglify())
+  plugins.push(uglify(), filesize())
 }
 
 export default {
-  entry: 'index.js',
-  dest: 'bundle.js',
-  format: 'iife',
+  entry: "index.js",
+  dest: "bundle.js",
+  format: "iife",
   sourceMap: true,
   plugins: plugins
 }

@@ -53,9 +53,16 @@ task :generate do
   })).process
 end
 
+desc "Build javascript files"
+task :buildjs do
+  Dir.chdir("js") do
+    sh "NODE_ENV=production yarn build"
+  end
+end
+
 
 desc "Generate and publish blog to gh-pages"
-task :publish => [:generate] do
+task :publish => [:buildjs, :generate] do
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
     Dir.chdir tmp

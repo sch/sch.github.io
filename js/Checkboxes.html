@@ -47,7 +47,7 @@ function scale (pixelSize) {
 function getDimensions (element) {
   return {
     width: scale(element.clientWidth),
-    height: scale(window.innerHeight) - 6,
+    height: scale(window.innerHeight) - 8,
   }
 }
 
@@ -69,6 +69,11 @@ export default {
     window.addEventListener("resize", this.resize.bind(this))
     setInterval(this.tick.bind(this), 1000)
     this.resize()
+
+    var el = document.querySelector('.js-Checkboxes');
+    if (el && el.classList.contains('isPaused')) {
+      el.classList.remove('isPaused')
+    }
   },
 
   onteardown: function () {
