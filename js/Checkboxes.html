@@ -35,6 +35,7 @@
 
 <script>
 import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
+import { randomWalk, Point, Dimensions } from "./graphics"
 import throttle from "lodash.throttle"
 
 const CHECKBOX_SIZE = 14
@@ -57,15 +58,16 @@ function randomInRange (upperLimit) {
 export default {
   data: function () {
     return {
-      width: 20,
-      height: 20,
-      randomPosition: createPoint(5, 5),
+      width: 200,
+      height: 100,
+      point: new Point(20, 20),
       text: "adrian schaedle"
     }
   },
 
   onrender: function () {
     window.addEventListener("resize", this.resize.bind(this))
+    setInterval(this.tick.bind(this), 1000)
     this.resize()
   },
 
@@ -74,9 +76,11 @@ export default {
   },
 
   computed: {
-    canvas: function (width, height, text, randomPosition) {
-      var canvas = drawText(emptyCanvas(width, height), "adrian", createPoint(2, 2))
+    canvas: function (width, height, text, point) {
+      var canvas = emptyCanvas(width, height)
+      canvas = drawText(canvas, "adrian", createPoint(2, 2))
       canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+      flipBit(canvas, point.x, point.y)
       return canvas
     }
   },
@@ -85,6 +89,12 @@ export default {
     resize: throttle(function () {
       this.set(getDimensions(this.refs.element))
     }, 500),
+
+    tick () {
+      var point = this.get("point")
+      var dimensions = new Dimensions(this.get("width"), this.get("height"))
+      this.set({ point: randomWalk(point, dimensions) })
+    }
   }
 }
 </script>
