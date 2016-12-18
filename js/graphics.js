@@ -1,10 +1,31 @@
 import { ALPHABET_MAP } from "./silkscreen"
 
+function clamp (min, max, val) {
+  if (val < min) return min
+  if (val > max) return max
+  return val
+}
+
+function scale (larger, smaller) {
+  return Math.floor(larger / smaller)
+}
 
 export class Dimensions {
   constructor(width, height) {
     this.width = width
     this.height = height
+  }
+
+  clamp(containingDimensions) {
+    var width = clamp(0, containingDimensions.width, this.width)
+    var height = clamp(0, containingDimensions.height, this.height)
+    return new Dimensions(width, height)
+  }
+
+  sample(dimensions) {
+    var width = scale(this.width, dimensions.width)
+    var height = scale(this.height, dimensions.height)
+    return new Dimensions(width, height)
   }
 
   grow (direction, amount) {

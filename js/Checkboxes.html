@@ -14,7 +14,8 @@
 .CheckboxCanvas {
   box-sizing: border-box;
   overflow: hidden;
-  margin-bottom: 1em;
+  width: 100%;
+  height: 100%;
 }
 
 .CheckboxCanvas div {
@@ -38,17 +39,22 @@ import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
 import { randomWalk, Point, Dimensions } from "./graphics"
 import throttle from "lodash.throttle"
 
-const CHECKBOX_SIZE = 14
-
-function scale (pixelSize) {
-  return Math.floor(pixelSize / CHECKBOX_SIZE)
+function viewportDimensions () {
+  var { clientWidth, clientHeight } = document.documentElement
+  var width = Math.max(clientWidth, window.innerWidth || 0);
+  var height = Math.max(clientHeight, window.innerHeight || 0);
+  return new Dimensions(width, height)
 }
 
-function getDimensions (element) {
-  return {
-    width: scale(element.clientWidth),
-    height: scale(window.innerHeight) - 8,
-  }
+function elementDimensions (element) {
+  return new Dimensions(element.clientWidth || 0, element.clientHeight || 0)
+}
+
+function calculateCanvasDimensions (containerElement, checkboxElement) {
+  const containerDimensions = elementDimensions(containerElement)
+  const checkboxDimensions = elementDimensions(checkboxElement)
+  const adjustedDimensions = containerDimensions.clamp(viewportDimensions())
+  return adjustedDimensions.sample(checkboxDimensions)
 }
 
 function randomInRange (upperLimit) {
@@ -58,22 +64,24 @@ function randomInRange (upperLimit) {
 export default {
   data: function () {
     return {
-      width: 200,
-      height: 100,
+      width: 100,
+      height: 50,
       points: [],
-      text: "adrian schaedle"
+      text: "adrian\nschaedle"
     }
   },
 
   onrender: function () {
     window.addEventListener("resize", this.resize.bind(this))
-    setInterval(this.tick.bind(this), 1000)
+    setInterval(this.tick.bind(this), 1500)
     this.resize()
 
-    var el = document.querySelector('.js-Checkboxes');
-    if (el && el.classList.contains('isPaused')) {
-      el.classList.remove('isPaused')
-    }
+    setTimeout(function () {
+      var el = document.querySelector(".js-Checkboxes");
+      if (el && el.classList.contains("isPaused")) {
+        el.classList.remove("isPaused")
+      }
+    }, 500)
   },
 
   onteardown: function () {
@@ -83,8 +91,10 @@ export default {
   computed: {
     canvas: function (width, height, text, points) {
       var canvas = emptyCanvas(width, height)
-      canvas = drawText(canvas, "adrian", createPoint(2, 2))
-      canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+      if (width > 38) {
+        canvas = drawText(canvas, "adrian", createPoint(2, 2))
+        canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+      }
       points.forEach((point) => flipBit(canvas, point.x, point.y))
       return canvas
     }
@@ -92,7 +102,10 @@ export default {
 
   methods: {
     resize: throttle(function () {
-      this.set(getDimensions(this.refs.element))
+      var element = this.refs.element.parentNode
+      // var element = this.refs.element.parentNode
+      var checkbox = element.querySelector("label")
+      this.set(calculateCanvasDimensions(element, checkbox))
     }, 500),
 
     addPoint (x, y) {

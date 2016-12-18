@@ -11,18 +11,21 @@ p {
   line-height: 1.618;
 }
 
-.Page {
-  margin-left: auto;
-  margin-right: auto;
+.Intro {
   padding: 1em;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.Page-expand {
+.Intro-flexible {
   flex: 1;
-  max-height: 100vh;
+  overflow: hidden;
+}
+
+.Intro-byline {
+  flex-shrink: 0;
 }
 
 .js-Checkboxes {
