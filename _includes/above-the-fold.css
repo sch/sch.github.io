@@ -30,7 +30,7 @@ p {
 
 .js-Checkboxes {
   opacity: 0;
-  animation: fadeIn .40s ease-in-out 1 forwards;
+  animation: fadeIn .5s ease-in-out 1 forwards;
 }
 
 .isPaused {
