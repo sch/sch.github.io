@@ -12,3 +12,5 @@ Thumbs.db
 .sass-cache/*
 
 .sass-cache
+
+.asset-cache

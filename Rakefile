@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'fileutils'
 require 'stringex'
-require 'Jekyll'
+require 'jekyll'
 
 posts_dir = "stock/_posts"    # directory for blog files
 new_post_ext = "markdown"  # default new post file extension when using the new_post task
