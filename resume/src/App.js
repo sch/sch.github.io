@@ -10,26 +10,24 @@ const adrian = {
   email: "adrian@schaedle.me"
 }
 
-export default class App extends Component {
-  render() {
-    return (
-      <div className="Resume">
-        <Header person={adrian}>
-          <Markdown>{intro}</Markdown>
-        </Header>
-        <div className="Groups">
-          <Grouping title="Jobs">
-            <Job job={recurly} />
-            <Job job={nerdwallet} />
-            <Job job={digitalbungalow} />
-          </Grouping>
-          <Grouping title="Education">
-            <Education />
-          </Grouping>
-        </div>
+export default function App () {
+  return (
+    <div className="Resume">
+      <Header person={adrian}>
+        <Markdown>{intro}</Markdown>
+      </Header>
+      <div className="Groups">
+        <Grouping title="Jobs">
+          <Job job={recurly} />
+          <Job job={nerdwallet} />
+          <Job job={digitalbungalow} />
+        </Grouping>
+        <Grouping title="Education">
+          <Education />
+        </Grouping>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 class Header extends Component {

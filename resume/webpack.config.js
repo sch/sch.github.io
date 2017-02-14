@@ -3,33 +3,32 @@ var webpack = require("webpack");
 
 var config = module.exports = {};
 
-var jsLoader = {
-  test: /\.jsx?$/,
-  loaders: ["react-hot", "babel"],
+var jsRule = {
+  test: /\.js$/,
+  use: ["babel-loader"],
   include: path.join(__dirname, "src")
 };
 
-var cssLoader = {
+var cssRule = {
   test: /\.css$/,
-  loader: [
-    "style-loader",
-    "css-loader",
-    "autoprefixer-loader"
-  ].join("!")
+  use: ["style-loader", "css-loader", "autoprefixer-loader"]
 };
 
-var markdownLoader = {
+var markdownRule = {
   test: /\.markdown$/,
-  loader: "html!markdown"
+  use: ["html-loader", "markdown-loader"]
 };
 
-config.module = {loaders: [jsLoader, cssLoader, markdownLoader]};
+config.module = {rules: [jsRule, cssRule, markdownRule]};
 
-config.plugins = [
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
-];
+config.entry = "./src/index";
 
-config.resolve = {extensions: ["", ".js", ".jsx"]};
+config.output = {
+  path: path.join(__dirname, "dist"),
+  filename: "bundle.js",
+  publicPath: "/"
+};
 
-config.entry = ["./src/index"];
+if (process.env.NODE_ENV === "production") {
+  config.devtool = "source-map";
+}
