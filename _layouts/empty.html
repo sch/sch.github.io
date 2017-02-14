@@ -6,15 +6,17 @@
     {% include title.html %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
     {% include above-the-fold.css %}
     </style>
+
+    {% include google-analytics.html %}
   </head>
   <body>
     <div class="Intro">
       {{ content }}
     </div>
     <script src="js/bundle.js" charset="utf-8"></script>
-    {% include google-analytics.html %}
   </body>
 </html>
