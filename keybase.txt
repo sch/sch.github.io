@@ -1,0 +1,75 @@
+://keybase.io/schaedle
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://adrian.schaedle.me
+  * I am schaedle (https://keybase.io/schaedle) on keybase.
+  * I have a public key with fingerprint A6B0 E37C AF4E E6EE 9529  9F90 2B36 E4C4 3576 001D
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01205280413ac4a1afe16f43b3b10f75937a2e72027b3c290b15a260fc3b59a9fa920a",
+            "fingerprint": "a6b0e37caf4ee6ee95299f902b36e4c43576001d",
+            "host": "keybase.io",
+            "key_id": "2b36e4c43576001d",
+            "kid": "010142f7998da14e8babc4a4b32f2e3870b1d28a5906c35fec38a4b00a41d3ffdc640a",
+            "uid": "ff1d23fa9dacb2ec64789c14b74c4719",
+            "username": "schaedle"
+        },
+        "service": {
+            "hostname": "adrian.schaedle.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1487122946,
+    "expire_in": 157680000,
+    "prev": "425001301efe961bed2ce4b038813f7c422ca9286e518a4f4ddfa43a3a908a88",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.62
+Comment: https://keybase.io/crypto
+
+yMNvAnicbVJ9TFVlHL4QIDH5SgqE3ZIzN2gCvufjno+LkR+FXslhNL6KAe855z33
+Hrlf3HshPhRaZpGGheEHNpIgIRyZMjJzoFyB4SQEKnM0kMpi0xUMaa4uzvUeJv91
+/jk7v9/zPO/zPOcdDH1CF+K3gf190FCu0/uNeJvLdHlt3f7VhOiQKwljNVGCll/I
+KiO3p6hElQkjAUgKGCgeMCQNJQaSUEEkqzC0SIskUDiDQHOQQhwFKE6kJUoAImmA
+FAsUiRYNAhQUKFAAEkmEotrNyOV0qXYPloWsCBDNSVBhEGIREgyUICgCoESaRYzE
+0AaOBYCUMdHicGsMbE6EbpSiOvAMfxQt2/sf/IpvQDKUwgkCL0OSQbwIReyfEWlK
+oRDNc9ioTPHQIABWog0KkmgebwGADCnTiiJLLLPsu2xZTlEwmsZhZCiJFMJLjhck
+khE5fDhHChrQjVx2aEMY7ZYsEMlWROxLIvC0XJWQVqyW5DECyi4V2lNWgCl4mEQ4
+XQ6PQ3JY8d7i8TjdRo3vqXRqhDeRWPRYqkhU7TJuEzPKkcutOuyEkcRIyaNq2iTD
+cyRFCQybRKAKp+pCRaqGwA3xAD/aOagcSzKUAVdGAxIpSGBJEcmUhHAFNM+TtMJJ
+DEVJ+O/xLDKQuBuFkWUFMjSkoQB4yPOEFq7U7iCMPLYJzVpw1WyHnjIXTn7VWxCg
+8wvRBQX6a7dMF/JkxMrd25IQofumKy33xsZ3Csf10Jfe15n5ecvQA2uY138zmTvq
+rn16+NCEtWNw1dKRtQ8qgp11W0OTR/rZyNzT756Nj6O26TOyL9bprO1pF8b1BQu7
+Phj6TjgwOTXWHDVpi96zQCff5Mzn/dZE+faHnmPrZ5pyWhJiBEvN7p73rlwbrZpb
+P/PpvcTi/n/ftw2XPLXgSgT1XZlb/fOTwaTJF8F/fOq451vTreveyamwuNTSwN6G
+uq7kuylBPnuMmZhfN1ZFwoTS+qyfGFd9264t08Zqi8nU73WvHsg4XpEddOez7MCT
+r95pOmozhzuN/ebwy1fF+1f2++JLvnqmJTh4acgTN3dw4+2a7bfywh7+3Ho+rrv3
+H1/f4Vr2o57i3JaHb2SEv259TUitftR7rcEU0VxSFS1k7lxtGpg4nHdBar0boca3
+3+sr7BRu+E283HDpROGff8fp88ipdUnmHYdWlQYsvRg2fFRBsa3bun69nXas8QXb
+meC1a3bM/zHz5aMCuP5U5lvbm+cCfmuy7pn2ZvmPRy3uO6B/7pXkrJoz3sXI+5+U
+Z+bsHdg0/UXHOWn24KX8gdD8TqOQGgvSfd1zzz7/UmN78cyx4q/PdoCYHwu7U+dr
+x1o7v5+JHQm6eVkduZ4Tz+1O3Ov8YVPbh0OLHY0W28XZvyJP5wb8kt2THu2bbtxM
+Db49uoGcjTrZVVlz5D8B/Lk4
+=xIdB
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/schaedle
+
+==================================================================
+
