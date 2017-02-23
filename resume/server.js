@@ -1,3 +1,4 @@
+var path = require("path");
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
@@ -8,7 +9,7 @@ config.devtool = "inline-source-map";
 
 config.entry = [
   "react-hot-loader/patch",
-  "webpack-dev-server/client?http://localhost:3000",
+  "webpack-dev-server/client?http://localhost:"+ PORT,
   "webpack/hot/only-dev-server",
   config.entry
 ];
@@ -19,7 +20,7 @@ config.plugins = [
 ];
 
 new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
+  publicPath: config.output.publicPath + "dist/",
   hot: true,
   historyApiFallback: true
 }).listen(PORT, 'localhost', function (err, result) {
