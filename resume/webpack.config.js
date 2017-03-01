@@ -24,9 +24,9 @@ config.module = {rules: [jsRule, cssRule, markdownRule]};
 config.entry = "./src/index";
 
 config.output = {
-  path: path.join(__dirname, "dist"),
   filename: "bundle.js",
-  publicPath: "/"
+  path: path.join(__dirname, "dist"),
+  publicPath: "/dist/",
 };
 
 if (process.env.NODE_ENV === "production") {
