@@ -151,10 +151,11 @@ body {
 
 .Job-dates {
   font-family: "ff-meta-web-pro", sans;
-  font-weight: 600;
-  margin-bottom: 1em;
-  line-height: 1;
+  font-feature-settings: "lnum" on;
   font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 1em;
   text-align: center;
 }
 
