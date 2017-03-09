@@ -2,7 +2,7 @@
   "name": "adrian-resume",
   "version": "1.0.0",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --hide-modules"
+    "build": "webpack -p --hide-modules"
   },
   "dependencies": {
     "react": "^15.4.2",
@@ -17,6 +17,11 @@
     "babel-preset-env": "^1.1.10",
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.26.2",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "html-loader": "^0.4.5",
     "markdown-loader": "^2.0.0",

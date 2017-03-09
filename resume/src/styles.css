@@ -54,6 +54,15 @@ body {
   color: #343434;
 }
 
+
+.PrintMessage {
+  display: none;
+  content: "This resume was generated from a web page available at https://adrian.schaedle.me/resume";
+	border-bottom: solid 1px black;
+  padding: 1.6em;
+  text-align: center;
+}
+
 @media screen and (min-width: 30em) {
   .Resume {
     padding-left: 1em;
@@ -110,6 +119,11 @@ body {
 .Prose {
   line-height: 1.45;
   /* max-width: 34em; */
+	margin-top: 1em;
+}
+
+.Prose p:first-of-type {
+	margin-top: 0;
 }
 
 
@@ -270,7 +284,8 @@ body {
   }
 
   tr,
-  img {
+  img,
+  .Job {
     page-break-inside: avoid;
   }
 
@@ -286,7 +301,16 @@ body {
   }
 
   h2,
-  h3 {
+  h3,
+  .Grouping {
     page-break-after: avoid;
+  }
+
+  .PrintMessage {
+    display: block;
+  }
+
+	.Job-info .Prose {
+		columns: 2;
   }
 }

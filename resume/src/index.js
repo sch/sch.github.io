@@ -7,18 +7,24 @@ import App from "./App";
 
 loadTypekit("zal0bho");
 
-render(App);
+export function embed (node) {
+  renderInto(node);
 
-if (module.hot) {
-  module.hot.accept('./App', render.bind(null, App));
+  if (module.hot) {
+    module.hot.accept('./App', renderInto.bind(null, node));
+  }
 }
 
-function render(RootComponent) {
+export {
+  App as Component
+}
+
+function renderInto (node) {
   const root = (
     <AppContainer>
-      <RootComponent />
+      <App />
     </AppContainer>
   );
 
-  ReactDOM.render(root, document.getElementById("root"));
+  ReactDOM.render(root, node)
 }
