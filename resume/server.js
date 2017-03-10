@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
+
 var config = require("./webpack.config");
 
 var PORT = 3000;
@@ -16,6 +17,11 @@ config.entry = [
   config.entry
 ];
 
+config.module.rules.push({
+  test: /\.css$/,
+  use: ["style-loader", "css-loader", "postcss-loader"]
+})
+
 config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NamedModulesPlugin()
@@ -29,7 +35,7 @@ new WebpackDevServer(webpack(config), {
 }).listen(PORT, "localhost", function (err, result) {
   if (err) {
     console.log(err);
+  } else {
+    console.log("Listening at: " + url);
   }
-
-  console.log("Listening at: " + url);
 });

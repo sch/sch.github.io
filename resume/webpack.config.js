@@ -24,13 +24,9 @@ config.module = {
     },
 
     {
-      test: /\.css$/,
-      use: ["style-loader", "css-loader", "autoprefixer-loader"]
-    },
-
-    {
       test: /\.markdown$/,
       use: ["html-loader", "markdown-loader"]
     }
   ]
 };
+

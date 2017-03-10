@@ -5,9 +5,8 @@ import { AppContainer } from "react-hot-loader";
 
 import App from "./App";
 
-loadTypekit("zal0bho");
-
 export function embed (node) {
+	loadTypekit("zal0bho");
   renderInto(node);
 
   if (module.hot) {

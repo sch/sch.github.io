@@ -19,9 +19,7 @@ const adrian = {
 export default function App () {
   return (
     <div className="Resume">
-      <div className="PrintMessage">
-        This resume was generated from a web page available at <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>. I encourge you to look at that version!
-      </div>
+      <PrintMessage />
       <Header person={adrian}>
         <Markdown>{intro}</Markdown>
       </Header>
@@ -36,6 +34,14 @@ export default function App () {
           <Education />
         </Grouping>
       </div>
+    </div>
+  );
+}
+
+function PrintMessage () {
+  return (
+    <div className="PrintMessage">
+      This resume was generated from a web page available at <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>. I encourge you to look at that version!
     </div>
   );
 }
