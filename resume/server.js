@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 var config = require("./webpack.config");
 
@@ -17,6 +18,8 @@ config.entry = [
   config.entry
 ];
 
+config.output.publicPath = "/";
+
 config.module.rules.push({
   test: /\.css$/,
   use: ["style-loader", "css-loader", "postcss-loader"]
@@ -24,10 +27,15 @@ config.module.rules.push({
 
 config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin()
+  new webpack.NamedModulesPlugin(),
+  new HtmlWebpackPlugin({
+    title: "HOT Resume",
+    template: "src/template.html",
+  }),
 ];
 
 new WebpackDevServer(webpack(config), {
+  contentBase: config.output.path,
   publicPath: config.output.publicPath,
   compress: true,
   hot: true,
