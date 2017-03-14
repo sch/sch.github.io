@@ -1,3 +1,2 @@
-The one in Massachusetts. Studied physics and art, and graduated with a BS in
-Computer Science. Worked as a Physics TA. Ran the tech side of the radio
-station for three years.
+BS in Computer Science. Studied physics and art, worked as a physics teacher's
+assistant. Ran the tech side of the radio station for three years.

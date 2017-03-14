@@ -1,7 +1,7 @@
 export const littlebits = {
   dates: {start: "August 2015", end: "Febuary 2017"},
   company: "littleBits",
-  title: "Software Developer",
+  title: "Lead Frontend Developer",
   description: require("./jobs/littlebits.markdown")
 };
 
