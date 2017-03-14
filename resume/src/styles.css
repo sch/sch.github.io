@@ -13,6 +13,14 @@ body {
   margin: 0;
 }
 
+a {
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
 
 .Arrange {
   -webkit-box-sizing: border-box;
@@ -58,7 +66,7 @@ body {
 .PrintMessage {
   display: none;
   content: "This resume was generated from a web page available at https://adrian.schaedle.me/resume";
-	border-bottom: solid 1px black;
+  border-bottom: solid 1px black;
   padding: 1.6em;
   text-align: center;
 }
@@ -94,14 +102,13 @@ body {
   .Resume-contact {
     box-sizing: border-box;
     float: left;
-    padding-right: 1rem;
+    padding-right: 1.618rem;
     width: 33%;
   }
 
   .Resume-intro {
     box-sizing: border-box;
     float: left;
-    padding-left: 1rem;
     width: 65%;
   }
 }
@@ -119,26 +126,22 @@ body {
 .Prose {
   line-height: 1.45;
   /* max-width: 34em; */
-	margin-top: 1em;
 }
-
 .Prose p:first-of-type {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 
 .Grouping-title {
   font-family: "ff-meta-web-pro", sans;
   font-size: 1.618em;
-  padding-right: 1em;
+  padding-right: 1.618em;
   padding-bottom: 1em;
-  line-height: 1;
 }
 
 @media (min-width: 38em) {
   .Grouping-title {
     box-sizing: border-box;
-    padding-left: 1rem;
     margin-left: 33%;
   }
 }
@@ -164,12 +167,6 @@ body {
 
 
 .Job-dates {
-  font-family: "ff-meta-web-pro", sans;
-  font-feature-settings: "lnum" on;
-  font-size: 0.8em;
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 1em;
   text-align: center;
 }
 
@@ -196,7 +193,7 @@ body {
     float: left;
     width: 33.333%;
     padding-top: 0.4em;
-    padding-right: 1rem;
+    padding-right: 1.618rem;
     position: sticky;
     top: 0.618rem;
     text-align: right;
@@ -205,33 +202,36 @@ body {
   .Job-info {
     box-sizing: border-box;
     float: left;
-    padding-left: 1rem;
     width: 66.666%;
     padding-bottom: 2em;
   }
 
   .Job-company {
-    line-height: 1;
     font-size: 1.3em;
   }
 
   .Job-title {
-    line-height: 1;
   }
 }
 
 
-
 .Dates {
-  background-color: hsl(3, 60%, 54%);
-  border-radius: 0.2em;
-  box-sizing: border-box;
-  color: white;
-  display: block;
-  line-height: 1;
-  padding: 0.4em 0.4em;
-  text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.3);
-  white-space: nowrap;
+  /* background-color: hsl(3, 60%, 54%); */
+  /* border-radius: 0.2em; */
+  /* box-sizing: border-box; */
+  /* color: white; */
+  color: #666;
+  /* display: block; */
+  font-family: "ff-meta-web-pro", sans;
+  font-feature-settings: "lnum" on;
+  /* font-size: 0.8em; */
+  /* font-weight: 600; */
+  /* line-height: 1; */
+  /* margin-top: 0.618em; */
+  /* margin-bottom: 1em; */
+  /* padding: 0.4em 0.4em; */
+  /* text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.3); */
+  /* white-space: nowrap; */
 }
 
 @media screen and (min-width: 38em) {
@@ -310,7 +310,7 @@ body {
     display: block;
   }
 
-	.Job-info .Prose {
-		columns: 2;
+  .Job-info .Prose {
+    columns: 2;
   }
 }

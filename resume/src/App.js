@@ -71,17 +71,11 @@ function Job ({ job }) {
   return (
     <div className="Job clearfix">
       <div className="Job-dates">
+        <div className="Job-company">{job.company}</div>
+        <div className="Job-title">{job.title}</div>
         <Dates start={job.dates.start} end={job.dates.end} />
       </div>
       <div className="Job-info">
-        <Arrange>
-          <ArrangeItem>
-            <div className="Job-company">{job.company}</div>
-          </ArrangeItem>
-          <ArrangeItem>
-            <div className="Job-title">{job.title}</div>
-          </ArrangeItem>
-        </Arrange>
         <Markdown>{job.description}</Markdown>
       </div>
     </div>
