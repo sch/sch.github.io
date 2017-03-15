@@ -64,21 +64,21 @@ a:visited {
 
 
 .PrintMessage {
-  display: none;
-  content: "This resume was generated from a web page available at https://adrian.schaedle.me/resume";
   border-bottom: solid 1px black;
-  padding: 1.6em;
+  display: none;
+  font-family: "ff-meta-web-pro", sans-serif;
+  padding: 1.8em;
   text-align: center;
 }
 
-@media screen and (min-width: 30em) {
+@media (min-width: 30em) {
   .Resume {
     padding-left: 1em;
     padding-right: 1em;
   }
 }
 
-@media screen and (min-width: 50em) {
+@media (min-width: 50em) {
   .Resume {
     padding-left: 1.618em;
     padding-right: 1.618em;
@@ -113,7 +113,7 @@ a:visited {
   }
 }
 
-@media screen and (min-width: 60em) {
+@media (min-width: 60em) {
   .Resume-contact {
     width: 50%;
   }
@@ -146,7 +146,7 @@ a:visited {
   }
 }
 
-@media screen and (min-width: 60em) {
+@media (min-width: 60em) {
   .Grouping-title {
     float: left;
     width: 25%;
@@ -234,24 +234,7 @@ a:visited {
   /* white-space: nowrap; */
 }
 
-@media screen and (min-width: 38em) {
-  .Dates {
-    display: inline-block;
-  }
-}
-
 @media print {
-  *,
-  *:before,
-  *:after,
-  *:first-letter,
-  *:first-line {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
   html {
     font-size: 9pt;
   }
@@ -261,17 +244,17 @@ a:visited {
     text-decoration: underline;
   }
 
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
+  /* a[href]:after { */
+  /*   content: " (" attr(href) ")"; */
+  /* } */
 
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
+  /* abbr[title]:after { */
+  /*   content: " (" attr(title) ")"; */
+  /* } */
+  /* a[href^="#"]:after, */
+  /* a[href^="javascript:"]:after { */
+  /*   content: ""; */
+  /* } */
 
   pre,
   blockquote {
@@ -284,8 +267,7 @@ a:visited {
   }
 
   tr,
-  img,
-  .Job {
+  img {
     page-break-inside: avoid;
   }
 
@@ -301,16 +283,11 @@ a:visited {
   }
 
   h2,
-  h3,
-  .Grouping {
+  h3 {
     page-break-after: avoid;
   }
 
   .PrintMessage {
     display: block;
-  }
-
-  .Job-info .Prose {
-    columns: 2;
   }
 }
