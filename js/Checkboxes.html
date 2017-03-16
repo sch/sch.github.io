@@ -71,7 +71,7 @@ export default {
     }
   },
 
-  onrender: function () {
+  oncreate: function () {
     window.addEventListener("resize", this.resize.bind(this))
     setInterval(this.tick.bind(this), 1500)
     this.resize()
@@ -82,7 +82,7 @@ export default {
     }
   },
 
-  onteardown: function () {
+  ondestroy: function () {
     window.removeEventListener("resize", this.resize)
   },
 
