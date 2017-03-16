@@ -17,8 +17,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default {
-  entry: "index.js",
-  dest: "bundle.js",
+  entry: "js/index.js",
+  dest: "_site/js/bundle.js",
   format: "iife",
   sourceMap: true,
   plugins: plugins

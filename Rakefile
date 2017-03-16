@@ -48,18 +48,12 @@ GITHUB_REPONAME = "sch/sch.github.io"
 desc "Generate blog files"
 task :generate do
   ENV["JEKYLL_ENV"] = "production"
-
-  Jekyll::Site.new(Jekyll.configuration({
-    "source"      => ".",
-    "destination" => "_site",
-  })).process
+  Jekyll::Site.new(Jekyll.configuration).process
 end
 
 desc "Build javascript files"
 task :buildjs do
-  Dir.chdir("js") do
-    sh "NODE_ENV=production yarn build"
-  end
+  sh "NODE_ENV=production yarn build"
 end
 
 

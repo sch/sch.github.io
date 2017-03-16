@@ -28,21 +28,21 @@ config.plugins = [
 console.log("Building webpack bundle file...");
 
 webpack(config, function (err, stats) {
-	if (err || stats.hasErrors()) {
-		console.log("something went wrong", err)
-	} else {
-		buildResume(stats)
-	}
+  if (err || stats.hasErrors()) {
+    console.log("something went wrong", err)
+  } else {
+    buildResume(stats)
+  }
 })
 
 function buildResume (stats) {
-	console.log("Generating initial HTML page...");
-	var Resume = require("./dist/bundle");
-	var contents = renderToString(Resume.Component);
-	var shell = fs.readFileSync(path.join(__dirname, "index.template.html"), "utf8");
-	var html = shell.replace("<!-- yield -->", contents);
-	fs.writeFileSync(path.join(__dirname, "index.html"), html);
-	console.log("Done!");
+  console.log("Generating initial HTML page...");
+  var Resume = require("./dist/bundle");
+  var contents = renderToString(Resume.Component);
+  var shell = fs.readFileSync(path.join(__dirname, "index.template.html"), "utf8");
+  var html = shell.replace("<!-- yield -->", contents);
+  fs.writeFileSync(path.join(__dirname, "index.html"), html);
+  console.log("Done!");
 }
 
 function renderToString (component) {

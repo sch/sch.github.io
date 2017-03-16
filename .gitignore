@@ -16,3 +16,4 @@ Thumbs.db
 .asset-cache
 
 yarn-error.log
+node_modules
