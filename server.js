@@ -30,7 +30,7 @@ config.plugins = [
   new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({
     title: "HOT Resume",
-    template: "src/template.html",
+    template: "js/template.html",
   }),
 ];
 

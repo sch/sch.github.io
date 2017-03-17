@@ -3,11 +3,11 @@ var webpack = require("webpack");
 
 var config = module.exports = {};
 
-config.entry = "./src/index";
+config.entry = "./js/resume";
 
 config.output = {
-  filename: "bundle.js",
-  path: path.join(__dirname, "dist"),
+  filename: "resume-bundle.js",
+  path: path.join(__dirname, "_site", "js"),
   publicPath: "/dist/",
   library: "Resume",
   libraryTarget: "umd"

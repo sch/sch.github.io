@@ -37,11 +37,11 @@ webpack(config, function (err, stats) {
 
 function buildResume (stats) {
   console.log("Generating initial HTML page...");
-  var Resume = require("./dist/bundle");
+  var Resume = require("./_site/js/resume-bundle");
   var contents = renderToString(Resume.Component);
   var shell = fs.readFileSync(path.join(__dirname, "index.template.html"), "utf8");
   var html = shell.replace("<!-- yield -->", contents);
-  fs.writeFileSync(path.join(__dirname, "index.html"), html);
+  fs.writeFileSync(path.join(__dirname, "src", "resume", "index.html"), html);
   console.log("Done!");
 }
 
