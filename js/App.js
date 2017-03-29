@@ -41,7 +41,7 @@ export default function App () {
 function PrintMessage () {
   return (
     <div className="PrintMessage">
-      This resume was generated from a web page available at <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>. I encourge you to look at that version!
+      This resume was generated from a web page available at <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>. I encourage you to look at that version!
     </div>
   );
 }
