@@ -11,8 +11,6 @@ new_post_ext = "markdown"  # default new post file extension when using the new_
 desc "Begin a new post in #{posts_dir}"
 
 task :new do
-  require './_plugins/titlecase.rb'
-
   puts "What should we call this post for now?"
   name = STDIN.gets.chomp
 
@@ -24,7 +22,7 @@ task :new do
     system "mkdir -p #{posts_dir}/";
     post.puts "---"
     post.puts "layout: post"
-    post.puts "title: \"#{title.gsub(/&/,'&amp;').titlecase}\""
+    post.puts "title: \"#{title}\""
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "comments: true"
     post.puts "categories: "
