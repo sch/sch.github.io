@@ -35,15 +35,12 @@ end
 
 desc "Startup Jekyll"
 task :start do
-  sh "jekyll server"
+  sh "jekyll server --incremental"
 end
 
 task :default => :start
 
-
-# Change your GitHub reponame
 GITHUB_REPONAME = "sch/sch.github.io"
-
 
 desc "Generate blog files"
 task :generate do
