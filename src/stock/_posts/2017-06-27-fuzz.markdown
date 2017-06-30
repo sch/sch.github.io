@@ -1,0 +1,101 @@
+---
+layout: skeleton
+title: "fuzz"
+date: 2017-06-27 15:22
+comments: true
+categories: categories
+---
+
+# fuzzy matching
+
+I'm going to go out on a limb here and say that the most important UI
+development in the last fifteen years hasn't been the rise of voice-control
+assistants, conversational artificial intelligence chatbots, or virtual reality
+environments. It's something that even rivals the intuitive and universal
+qualities we have through now-ubiquitous touchscreens. No, the most important
+innovation has been something that a lot of people take for granted: the fuzzy
+search interface.
+
+The most common one of these we interact with is Google's search interface.
+
+Google first introduced 
+
+## the canon cat
+
+One of the earliest examples I could find of ubiquitous fuzzy commands was in
+the Canon Cat:
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/o_TlE_U_X3c?rel=0&amp;controls=0&amp;showinfo=0&amp;start=180"
+frameborder="0" allowfullscreen></iframe>
+
+The Cat was the brainchild of Jef Raskin. In addition to his contributions to
+mathematics, aerodynamics, nursing, and music, Jef is perhaps most famous for
+taking the research around graphical user interfaces at Xerox Parc and turning
+them into the philosophy and human interface guidelines of the original
+Macintosh.
+
+The Cat was a word processing appliance more than it was a computer. The main
+thing you're going to do in a word processor is type, and in that regard, the
+Cat operated like an electric typewriter.
+
+In addition to the jump-to-command functionality, there was a text-based
+spreadsheet, a dictionary, and a macro system that allowed for easy navigation
+through text. This was all powered through a user-accessible Forth interpreter,
+but that's a whole other story.
+
+## how far can we take it?
+
+Two qualities that Jef Raskin says every interface should have are
+**predictability** and **forgiveness**. Both are about instilling trust in the
+environment being used.
+
+An interface is predictable when an interaction can produce a consistent
+output. Swiping-to-unlock our phones becomes muscle memory. Pressing `<enter>`
+submits the default button in an alert. The same speed produces the same
+distance in two-finger momentum scrolling. These are interactions that have
+obvious and broad physical inputs, allowing us to internalize them and not spend
+extra brain cycles. The distance between the desired action and the result is
+small, because there's trust the action will do the right thing.
+
+Forgiveness is about removing fear in the interaction and about improving
+discovery. When a user is still learning or is exploring a less-often-used part
+of the interface, there's a lot of hesitation to try things out without the
+ability to undo the action. People will not try out new things and blame
+themselves rather than the environment when things go wrong.
+
+Many command-completion interfaces do a good job of describing the action to be
+taken. And many actions are expensive! But there's a case to be made for
+previewing the action to be taken before it's been made. It removes the step of
+performing the action and having to go back to the previous state through
+explicitly undoing. Undoing becomes an action only when escaping the command
+context.
+
+Consider a fuzzy-match file opener that is capable of previewing the file to be
+opened. Or in-file search that starts highlighting all available words as soon
+as you type. What if more behaviors worked like this? Would you take the ability
+to preview a link before clicking on it in a web browser? Could you be taking
+picture or video before you ever pressed your camera's shutter button? Could
+a mapping application show you several routes before you ever explicitly
+selected one?
+
+Predictive interactions are popping up everywhere in the small ---
+autocompleting words in texting apps, alarm clocks, etc.
+
+Humans have a hard time thinking about many permutations at once, especially
+more than one level deep. Being able to model an interaction several moves ahead
+shouldn't be limited to chess grandmasters when we have perfectly good tools to
+model our potential paths. But such an amount of information can be
+overwhelming.
+
+Additionally, there's the likelihood that a predictive action could be sensitive
+or risky, and that providing a preview of the action could be anxiety-inducing
+("send this selfie to: your lover, your grandmother, your boss" or `rm -rf /`).
+Simply seeing a risky predictive outcome can make you less likely to continue.
+
+Care must be taken to show you relevant results as well. This is more than
+simply parsing out related 
+
+
+[canon-cat-history]: http://www.jagshouse.com/swyft.html
+[forth-post]:
