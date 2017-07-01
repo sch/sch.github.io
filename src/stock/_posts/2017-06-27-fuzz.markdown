@@ -99,3 +99,18 @@ simply parsing out related
 
 [canon-cat-history]: http://www.jagshouse.com/swyft.html
 [forth-post]:
+
+links:
+
+- https://pdfs.semanticscholar.org/64b4/0e4627a83b74962a290243211cb3161706eb.pdf
+- https://www.google.com/patents/US7644127
+- https://www.google.com/patents/US20120192096
+- https://en.wikipedia.org/wiki/Approximate_string_matching
+- https://en.wikipedia.org/wiki/Fuzzy_matching_(computer-assisted_translation)
+- https://news.ycombinator.com/item?id=7762904
+- https://www.youtube.com/watch?v=q8ZP23QsRd0
+- http://www.jagshouse.com/swyft.html
+- http://transcriptvids.com/v/EuELwq2ThJE.html
+- https://vimeo.com/4641974
+- http://www.azarask.in/blog/post/enso_released_in_memory_of_jef_raskin/
+- https://www.youtube.com/watch?v=d4LkTstvUL4
