@@ -7,6 +7,7 @@
     "build": "npm run build:checkboxes && npm run build:resume",
     "build:checkboxes": "rollup --config",
     "build:resume": "node build.js",
+    "postinstall": "npm run build",
     "server": "npm run server:resume",
     "server:checkboxes": "rollup --config --watch",
     "server:resume": "node server.js"
