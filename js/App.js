@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Typekit from "react-typekit";
 
 require("./styles.css");
 
-const intro = require("./intro.markdown")
+const intro = require("./intro.markdown");
 const {
+  contracting,
   littlebits,
   recurly,
   nerdwallet,
@@ -14,9 +16,9 @@ const {
 const adrian = {
   name: "Adrian Schaedle",
   email: "adrian@schaedle.me"
-}
+};
 
-export default function App () {
+export default function App() {
   return (
     <div className="Resume">
       <PrintMessage />
@@ -24,7 +26,8 @@ export default function App () {
         <Markdown>{intro}</Markdown>
       </Header>
       <div className="Groups">
-        <Grouping title="Jobs">
+        <Grouping title="Experience">
+          <Job job={contracting} />
           <Job job={littlebits} />
           <Job job={recurly} />
           <Job job={nerdwallet} />
@@ -34,19 +37,23 @@ export default function App () {
           <Education />
         </Grouping>
       </div>
+      <Typekit kitId="jks2qci" />
     </div>
   );
 }
 
-function PrintMessage () {
+function PrintMessage() {
   return (
     <div className="PrintMessage">
-      This resume was generated from a web page available at <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>. I encourage you to look at that version!
+      This resume was generated from a web page available at{" "}
+      <a href="https://adrian.schaedle.me/resume">
+        https://adrian.schaedle.me/resume
+      </a>. I encourage you to look at that version!
     </div>
   );
 }
 
-function Header ({ person, children }) {
+function Header({ person, children }) {
   return (
     <div className="Header clearfix">
       <div className="Resume-contact">
@@ -58,7 +65,7 @@ function Header ({ person, children }) {
   );
 }
 
-function Grouping ({ title, children }) {
+function Grouping({ title, children }) {
   return (
     <div className="Grouping clearfix">
       <h1 className="Grouping-title">{title}</h1>
@@ -67,7 +74,7 @@ function Grouping ({ title, children }) {
   );
 }
 
-function Job ({ job }) {
+function Job({ job }) {
   return (
     <div className="Job clearfix">
       <div className="Job-dates">
@@ -82,13 +89,17 @@ function Job ({ job }) {
   );
 }
 
-function Arrange ({ children }) {
-  return React.createElement("div", {
-    className: "Arrange"
-  }, children);
+function Arrange({ children }) {
+  return React.createElement(
+    "div",
+    {
+      className: "Arrange"
+    },
+    children
+  );
 }
 
-function ArrangeItem ({ fit, children }) {
+function ArrangeItem({ fit, children }) {
   const kind = fit ? "Fit" : "Fill";
   const alignment = "middle";
   const basename = `Arrange-size${kind}`;
@@ -96,29 +107,28 @@ function ArrangeItem ({ fit, children }) {
   if (alignment) {
     classes.push(`${basename}--${alignment}`);
   }
-  return React.createElement("div", {
-    className: classes.join(" ")
-  }, children);
-}
-
-function Education () {
-  return (
-    <Job job={wheaton} />
+  return React.createElement(
+    "div",
+    {
+      className: classes.join(" ")
+    },
+    children
   );
 }
 
-function Dates ({ start, end }) {
+function Education() {
+  return <Job job={wheaton} />;
+}
+
+function Dates({ start, end }) {
   let dates = [];
   if (start) dates.push(start);
   if (end) dates.push(end);
   const text = dates.join(" to ");
-  return (
-    <div className="Dates">{text}</div>
-  );
+  return <div className="Dates">{text}</div>;
 }
 
-function Markdown ({ children }) {
-  const html = {__html: children};
-  return <div className="Prose" dangerouslySetInnerHTML={html} />
+function Markdown({ children }) {
+  const html = { __html: children };
+  return <div className="Prose" dangerouslySetInnerHTML={html} />;
 }
-

@@ -48,6 +48,6 @@
     "lodash.throttle": "^4.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "typekit-shim": "0.0.1"
+    "react-typekit": "^1.1.3"
   }
 }

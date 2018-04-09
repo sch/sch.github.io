@@ -1,12 +1,14 @@
-I'm a programmer who loves to build user interfaces. I take inspiration from
-functional programming, Xerox Parc research, physics, and graphic design.
+I'm a programmer and designer specializing in communication software. That is,
+software designed to facilitate people working together to reduce ambiguity,
+remove ego, and express complex ideas — software that helps everyone get on the
+same page.
 
 I've worked with dynamic object-oriented languages (Python, Ruby, Javascript),
-dynamic functional languages (Clojure, Racket), low-level languages (C, Go,
-Forth), and statically typed functional languages (OCaml, Elm).
+dynamic functional languages (Clojure, Elixir, Racket), low-level languages (C,
+Go, Forth), and statically typed functional languages (OCaml, Elm).
 
-Though my focus is on UI development, my passion lies in decomposing hard
-problems into well-factored systems. This means designing around data rather
-than specific algorithms or architecture, eliminating mutability and side
-effects to make applications easier to reason about, and above all, working
-to find the simplest solution to a problem.
+My main outlet for this kind of work has been through UI development, but
+extends to back-end and system development. This means designing around data
+rather than specific algorithms or architecture, eliminating mutability and side
+effects to make applications easier to reason about, and above all,
+understanding people's needs and finding the most humane solution to a problem.
