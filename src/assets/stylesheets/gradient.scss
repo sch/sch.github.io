@@ -1,5 +1,8 @@
-@import "./components/Project";
-@import "./typography";
+---
+# Necessary for Jekyll processing
+---
+
+@import "typography";
 
 $gradient-start: #DE6262;
 $gradient-end: #FFB88C;
