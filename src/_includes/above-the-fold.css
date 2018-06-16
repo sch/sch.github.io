@@ -52,9 +52,10 @@ p {
   min-height: 100vh;
   scroll-snap-align: start;
   display: grid;
-  grid-gap: 1em;
+  grid-column-gap: 16px;
+  grid-row-gap: 32px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  padding: 1em;
+  padding: 16px;
 }
 
 .Portfolio img {
@@ -74,8 +75,8 @@ p {
 
 .Portfolio h2 {
   font-size: 1.2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .Portfolio-description {
