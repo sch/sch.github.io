@@ -8,13 +8,12 @@ Through [Reaktor](https://www.reaktor.com), I helped textbook publisher Houghton
 Mifflin Harcourt prototype alternative textbook interactions and assessment
 software.
 
-Currently with Reaktor, I've worked to build internal tools for Adidas to make
-supply chain and garment embellishment information more visible.
-
 With [Standard Library](https://standard-library.com) and [IN-FO
-CO](http://in-fo.co), I am working to build the exhibition site for the [2018 US
-Architectural Pavilion](http://dimensionsofcitizenship.org) at the Venice
-Biennale.
+CO](http://in-fo.co), I built the exhibition site for the [2018 US Architectural
+Pavilion](http://dimensionsofcitizenship.org) at the Venice Biennale.
+
+Currently I'm working with Adidas to build internal tools to make supply chain
+and garment embellishment information more visible.
 
 This work has touched many different technologies, including Kubernetes, React,
 GraphQL, Typescript, Swagger, gRPC, Postgres, Ruby, Elixir, and Elm.
