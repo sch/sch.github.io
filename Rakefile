@@ -48,7 +48,7 @@ end
 
 desc "Build javascript files"
 task :buildjs do
-  sh "NODE_ENV=production yarn build"
+  sh "NODE_ENV=production npm run build"
 end
 
 

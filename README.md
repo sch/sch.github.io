@@ -12,6 +12,6 @@ rake start     # Startup Jekyll
 ```
 
 Run `rake start` to bulid the Jekyll site locally, `rake publish` to build the
-site and upload the finished directory to the `master` branch. Run `yarn server`
-to continually build the resume page, run `yarn server:checkboxes` to run the
-development server for the homepage.
+site and upload the finished directory to the `master` branch. Run `npm run
+server` to continually build the resume page, run `npm run server:checkboxes` to
+run the development server for the homepage.
