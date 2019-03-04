@@ -1,13 +1,13 @@
 <div ref:element class="CheckboxCanvas">
-  {{#each canvas as row, y}}
+  {#each canvas as row, y}
   <div>
-    {{#each row as column, x}}
+    {#each row as column, x}
     <label>
-      <input type="checkbox" checked={{column}} on:change="addPoint(x, y)"/>
+      <input type="checkbox" checked={column} on:change="addPoint(x, y)"/>
     </label>
-    {{/each}}
+    {/each}
   </div>
-  {{/each}}
+  {/each}
 </div>
 
 <style>
@@ -87,7 +87,7 @@ export default {
   },
 
   computed: {
-    canvas: function (width, height, text, points) {
+    canvas: function ({ width, height, text, points }) {
       var canvas = emptyCanvas(width, height)
       if (width > 38) {
         canvas = drawText(canvas, "adrian", createPoint(2, 2))
@@ -108,14 +108,14 @@ export default {
 
     addPoint (x, y) {
       var newPoint = new Point(x, y)
-      var points = this.get("points")
+      var { points } = this.get()
       points.push(newPoint)
       this.set({ points })
     },
 
     tick () {
-      var points = this.get("points")
-      var dimensions = new Dimensions(this.get("width"), this.get("height"))
+      var { points, width, height} = this.get()
+      var dimensions = new Dimensions(width, height)
       this.set({
         points: points.map((point) => randomWalk(point, dimensions))
       })
