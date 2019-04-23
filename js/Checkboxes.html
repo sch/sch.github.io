@@ -1,9 +1,9 @@
-<div ref:element class="CheckboxCanvas">
+<div bind:this={element} class="CheckboxCanvas">
   {#each canvas as row, y}
   <div>
-    {#each row as column, x}
+    {#each row as checked, x}
     <label>
-      <input type="checkbox" checked={column} on:change="addPoint(x, y)"/>
+      <input type="checkbox" {checked} on:change={() => addPoint(x, y)}/>
     </label>
     {/each}
   </div>
@@ -11,115 +11,142 @@
 </div>
 
 <style>
-.CheckboxCanvas {
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
+  .CheckboxCanvas {
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
 
-.CheckboxCanvas div {
-  margin: 0;
-  line-height: 0;
-}
+  .CheckboxCanvas div {
+    margin: 0;
+    line-height: 0;
+  }
 
-.CheckboxCanvas label {
-  padding: 1px;
-  display: inline-block;
-}
+  .CheckboxCanvas label {
+    padding: 1px;
+    display: inline-block;
+  }
 
-.CheckboxCanvas input {
-  margin: 0;
-  padding: 0;
-}
+  .CheckboxCanvas input {
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
 <script>
-import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
-import { randomWalk, Point, Dimensions } from "./graphics"
-import throttle from "lodash.throttle"
+  import {onMount} from "svelte"
+  import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
+  import { randomWalk, Point, Dimensions } from "./graphics"
+  import throttle from "lodash.throttle"
 
-function viewportDimensions () {
-  var { clientWidth, clientHeight } = document.documentElement
-  var width = Math.max(clientWidth, window.innerWidth || 0);
-  var height = Math.max(clientHeight, window.innerHeight || 0);
-  return new Dimensions(width, height)
-}
+  let element;
+  let width = 100
+  let height = 50
+  let points = []
+  let text = "adrian\nschaedle"
 
-function elementDimensions (element) {
-  return new Dimensions(element.clientWidth || 0, element.clientHeight || 0)
-}
+  let canvas = emptyCanvas(width, height)
 
-function calculateCanvasDimensions (containerElement, checkboxElement) {
-  const containerDimensions = elementDimensions(containerElement)
-  const checkboxDimensions = elementDimensions(checkboxElement)
-  const adjustedDimensions = containerDimensions.clamp(viewportDimensions())
-  return adjustedDimensions.sample(checkboxDimensions)
-}
+  if (width > 38) {
+    canvas = drawText(canvas, "adrian", createPoint(2, 2))
+    canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+  }
 
-function randomInRange (upperLimit) {
-  return Math.floor(Math.random() * upperLimit)
-}
+  points = points.forEach((point) => flipBit(canvas, point.x, point.y))
 
-export default {
-  data: function () {
-    return {
-      width: 100,
-      height: 50,
-      points: [],
-      text: "adrian\nschaedle"
-    }
-  },
+  function viewportDimensions () {
+    var { clientWidth, clientHeight } = document.documentElement
+    var width = Math.max(clientWidth, window.innerWidth || 0);
+    var height = Math.max(clientHeight, window.innerHeight || 0);
+    return new Dimensions(width, height)
+  }
 
-  oncreate: function () {
-    window.addEventListener("resize", this.resize.bind(this))
-    setInterval(this.tick.bind(this), 1500)
-    this.resize()
+  function elementDimensions (element) {
+    return new Dimensions(element.clientWidth || 0, element.clientHeight || 0)
+  }
+
+  function calculateCanvasDimensions (containerElement, checkboxElement) {
+    const containerDimensions = elementDimensions(containerElement)
+    const checkboxDimensions = elementDimensions(checkboxElement)
+    const adjustedDimensions = containerDimensions.clamp(viewportDimensions())
+    return adjustedDimensions.sample(checkboxDimensions)
+  }
+
+  function randomInRange (upperLimit) {
+    return Math.floor(Math.random() * upperLimit)
+  }
+
+  const resize = throttle(function () {
+    var checkbox = element.querySelector("label")
+    var dimensions = calculateCanvasDimensions(element.parentNode, checkbox)
+    console.log({dimensions})
+    width = dimensions.width
+    height = dimensions.height
+  }, 500)
+
+
+  function tick () {
+    var dimensions = new Dimensions(width, height);
+    console.log('before', points)
+    points = points.map((point) => randomWalk(point, dimensions));
+    console.log('after', points)
+  }
+
+  onMount(function() {
+    window.addEventListener("resize", resize);
+    var interval = setInterval(tick, 1500);
+    resize();
 
     var el = document.querySelector(".js-Checkboxes");
+
     if (el && el.classList.contains("isPaused")) {
-      el.classList.remove("isPaused")
+      el.classList.remove("isPaused");
     }
-  },
 
-  ondestroy: function () {
-    window.removeEventListener("resize", this.resize)
-  },
-
-  computed: {
-    canvas: function ({ width, height, text, points }) {
-      var canvas = emptyCanvas(width, height)
-      if (width > 38) {
-        canvas = drawText(canvas, "adrian", createPoint(2, 2))
-        canvas = drawText(canvas, "schaedle", createPoint(2, 9))
-      }
-      points.forEach((point) => flipBit(canvas, point.x, point.y))
-      return canvas
+    return function cleanup() {
+      window.removeEventListener("resize", resize);
+      clearInterval(interval)
     }
-  },
+  })
 
-  methods: {
-    resize: throttle(function () {
-      var element = this.refs.element.parentNode
-      // var element = this.refs.element.parentNode
-      var checkbox = element.querySelector("label")
-      this.set(calculateCanvasDimensions(element, checkbox))
-    }, 500),
-
-    addPoint (x, y) {
-      var newPoint = new Point(x, y)
-      var { points } = this.get()
-      points.push(newPoint)
-      this.set({ points })
-    },
-
-    tick () {
-      var { points, width, height} = this.get()
-      var dimensions = new Dimensions(width, height)
-      this.set({
-        points: points.map((point) => randomWalk(point, dimensions))
-      })
-    }
+  function addPoint(x, y) {
+    var newPoint = new Point(x, y)
+    points.push(newPoint)
   }
-}
+
+  //  computed: {
+  //    canvas: function ({ width, height, text, points }) {
+  //      var canvas = emptyCanvas(width, height)
+  //      if (width > 38) {
+  //        canvas = drawText(canvas, "adrian", createPoint(2, 2))
+  //        canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+  //      }
+  //      points.forEach((point) => flipBit(canvas, point.x, point.y))
+  //      return canvas
+  //    }
+  //  },
+  //
+  //  methods: {
+  //    resize: throttle(function () {
+  //      var element = this.refs.element.parentNode
+  //      var checkbox = element.querySelector("label")
+  //      this.set(calculateCanvasDimensions(element, checkbox))
+  //    }, 500),
+  //
+  //    addPoint (x, y) {
+  //      var newPoint = new Point(x, y)
+  //      var { points } = this.get()
+  //      points.push(newPoint)
+  //      this.set({ points })
+  //    },
+  //
+  //    tick () {
+  //      var { points, width, height} = this.get()
+  //      var dimensions = new Dimensions(width, height)
+  //      this.set({
+  //        points: points.map((point) => randomWalk(point, dimensions))
+  //      })
+  //    }
+  //  }
 </script>
