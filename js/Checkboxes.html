@@ -1,4 +1,4 @@
-<div bind:this={element} class="CheckboxCanvas">
+<div bind:this="{element}" class="CheckboxCanvas">
   {#each canvas as row, y}
   <div>
     {#each row as checked, x}
@@ -10,7 +10,7 @@
   {/each}
 </div>
 
-<svelte:window on:resize={resize} />
+<svelte:window on:resize="{resize}" />
 
 <style>
   .CheckboxCanvas {
@@ -37,67 +37,61 @@
 </style>
 
 <script>
-  import {onMount} from "svelte"
-  import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas"
-  import { randomWalk, Point, Dimensions } from "./graphics"
-  import throttle from "lodash.throttle"
+  import { onMount } from "svelte";
+  import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas";
+  import { randomWalk, Point, Dimensions } from "./graphics";
+  import throttle from "lodash.throttle";
 
   let element;
-  let width = 100
-  let height = 50
-  let points = []
-  let text = "adrian\nschaedle"
-  let canvas = emptyCanvas(width, height)
+  let points = [];
+  let canvas = emptyCanvas(100, 50);
 
   function draw() {
     if (width > 38) {
-      canvas = drawText(canvas, "adrian", createPoint(2, 2))
-      canvas = drawText(canvas, "schaedle", createPoint(2, 9))
+      canvas = drawText(canvas, "adrian", createPoint(2, 2));
+      canvas = drawText(canvas, "schaedle", createPoint(2, 9));
     }
 
-    points.forEach((point) => flipBit(canvas, point.x, point.y))
+    points.forEach(point => flipBit(canvas, point.x, point.y));
   }
 
-  function viewportDimensions () {
-    var { clientWidth, clientHeight } = document.documentElement
+  function viewportDimensions() {
+    var { clientWidth, clientHeight } = document.documentElement;
     var width = Math.max(clientWidth, window.innerWidth || 0);
     var height = Math.max(clientHeight, window.innerHeight || 0);
-    return new Dimensions(width, height)
+    return new Dimensions(width, height);
   }
 
-  function elementDimensions (element) {
-    return new Dimensions(element.clientWidth || 0, element.clientHeight || 0)
+  function elementDimensions(element) {
+    return new Dimensions(element.clientWidth || 0, element.clientHeight || 0);
   }
 
-  function calculateCanvasDimensions (containerElement, checkboxElement) {
-    const containerDimensions = elementDimensions(containerElement)
-    const checkboxDimensions = elementDimensions(checkboxElement)
-    const adjustedDimensions = containerDimensions.clamp(viewportDimensions())
-    return adjustedDimensions.sample(checkboxDimensions)
+  function calculateCanvasDimensions(containerElement, checkboxElement) {
+    const containerDimensions = elementDimensions(containerElement);
+    const checkboxDimensions = elementDimensions(checkboxElement);
+    const adjustedDimensions = containerDimensions.clamp(viewportDimensions());
+    return adjustedDimensions.sample(checkboxDimensions);
   }
 
-  function randomInRange (upperLimit) {
-    return Math.floor(Math.random() * upperLimit)
+  function randomInRange(upperLimit) {
+    return Math.floor(Math.random() * upperLimit);
   }
 
   function resize() {
-    var checkbox = element.querySelector("label")
-    var dimensions = calculateCanvasDimensions(element.parentNode, checkbox)
-    width = dimensions.width
-    height = dimensions.height
-    canvas = emptyCanvas(width, height)
+    var checkbox = element.querySelector("label");
+    var dimensions = calculateCanvasDimensions(element.parentNode, checkbox);
+    canvas = emptyCanvas(width, height);
   }
 
-
-  function tick () {
+  function tick() {
     var dimensions = new Dimensions(width, height);
-    points = points.map((point) => randomWalk(point, dimensions));
-    draw()
+    points = points.map(point => randomWalk(point, dimensions));
+    draw();
   }
 
   onMount(function() {
-    resize()
-    draw()
+    resize();
+    draw();
 
     var interval = setInterval(tick, 1500);
 
@@ -108,12 +102,12 @@
     }
 
     return function cleanup() {
-      clearInterval(interval)
-    }
-  })
+      clearInterval(interval);
+    };
+  });
 
   function addPoint(x, y) {
-    var newPoint = new Point(x, y)
-    points.push(newPoint)
+    var newPoint = new Point(x, y);
+    points.push(newPoint);
   }
 </script>

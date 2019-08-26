@@ -1,87 +1,99 @@
-import { ALPHABET_MAP } from "./silkscreen"
+import { ALPHABET_MAP } from "./silkscreen";
 
-var ORIGIN = createPoint(0, 0)
+var ORIGIN = createPoint(0, 0);
 
-export function emptyCanvas (width, height) {
-  var rows = []
+export function emptyCanvas(width, height) {
+  var rows = [];
 
   for (var i = 0; i < height; i++) {
-    var row = []
+    var row = [];
     for (var j = 0; j < width; j++) {
-      row.push(false)
+      row.push(false);
     }
-    rows.push(row)
+    rows.push(row);
   }
 
-  return rows
+  return rows;
 }
 
-function width (canvas) {
-  return canvas[0].length
+function width(canvas) {
+  return canvas[0].length;
 }
 
-function height (canvas) {
-  return canvas.length
+function height(canvas) {
+  return canvas.length;
 }
 
-export function createPoint (x, y) {
-  return { x: x, y: y }
+export function createPoint(x, y) {
+  return { x: x, y: y };
 }
 
-function isWithinBounds (canvas, point) {
-  return point.x < width(canvas) && point.y < height(canvas)
+function isWithinBounds(canvas, point) {
+  return point.x < width(canvas) && point.y < height(canvas);
 }
 
-function combineCanvas (bottomCanvas, topCanvas, offset) {
-  offset = offset || createPoint(0, 0)
+function combineCanvas(bottomCanvas, topCanvas, offset) {
+  offset = offset || createPoint(0, 0);
   for (var row = 0; row < topCanvas.length; row++) {
     for (var column = 0; column < topCanvas[row].length; column++) {
-      if (isWithinBounds(bottomCanvas, createPoint(column + offset.x, row + offset.y))) {
-        bottomCanvas[row + offset.y][column + offset.x] = topCanvas[row][column]
+      if (
+        isWithinBounds(
+          bottomCanvas,
+          createPoint(column + offset.x, row + offset.y)
+        )
+      ) {
+        bottomCanvas[row + offset.y][column + offset.x] =
+          topCanvas[row][column];
       }
     }
   }
-  return bottomCanvas
+  return bottomCanvas;
 }
 
-export function flipBit (canvas, x, y) {
+export function flipBit(canvas, x, y) {
   if (isWithinBounds(canvas, createPoint(x, y))) {
-    canvas[y][x] = true
+    canvas[y][x] = true;
   }
 }
 
-function letterCanvas (letter) {
+function letterCanvas(letter) {
   if (letter === " ") {
-    return [[false], [false], [false], [false], [false]]
+    return [[false], [false], [false], [false], [false]];
   }
-  return ALPHABET_MAP[letter[0].toUpperCase()]
+  return ALPHABET_MAP[letter[0].toUpperCase()];
 }
 
-export function drawText (canvas, text, offset) {
-  offset = offset || ORIGIN
-  var xOffset = 0 + offset.x
-  return text.split("").reduce(function (canvas, letter) {
-    var newOffset = createPoint(xOffset, offset.y)
-    var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset)
-    xOffset += width(letterCanvas(letter)) + 1
-    return newCanvas
-  }, canvas)
+export function drawText(canvas, text, offset) {
+  offset = offset || ORIGIN;
+  var xOffset = 0 + offset.x;
+  return text.split("").reduce(function(canvas, letter) {
+    var newOffset = createPoint(xOffset, offset.y);
+    var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset);
+    xOffset += width(letterCanvas(letter)) + 1;
+    return newCanvas;
+  }, canvas);
 }
 
-function textCanvas (text) {
-  return text.split("").map(letterCanvas).reduce(function (canvas, letter) {
-  })
+function textCanvas(text) {
+  return text
+    .split("")
+    .map(letterCanvas)
+    .reduce(function(canvas, letter) {});
 }
 
-function beside (leftCanvas, rightCanvas) {
-  var newWidth = width(leftCanvas) + width(rightCanvas)
-  var newHeight = height(leftCanvas) + height(rightCanvas)
-  var newCanvas = emptyCanvas(newWidth, newHeight)
-  return combineCanvas(combineCanvas(newCanvas, leftCanvas), rightCanvas, createPoint(width(leftCanvas), 0))
+function beside(leftCanvas, rightCanvas) {
+  var newWidth = width(leftCanvas) + width(rightCanvas);
+  var newHeight = height(leftCanvas) + height(rightCanvas);
+  var newCanvas = emptyCanvas(newWidth, newHeight);
+  return combineCanvas(
+    combineCanvas(newCanvas, leftCanvas),
+    rightCanvas,
+    createPoint(width(leftCanvas), 0)
+  );
 }
 
-function padCanvas (canvas, side, amount) {
+function padCanvas(canvas, side, amount) {
   // assume side is "left"
-  var SIDE = "left"
-  return canvas
+  var SIDE = "left";
+  return canvas;
 }

@@ -1,121 +1,123 @@
-import { ALPHABET_MAP } from "./silkscreen"
+import { ALPHABET_MAP } from "./silkscreen";
 
-function clamp (min, max, val) {
-  if (val < min) return min
-  if (val > max) return max
-  return val
+function clamp(min, max, val) {
+  if (val < min) return min;
+  if (val > max) return max;
+  return val;
 }
 
-function scale (larger, smaller) {
-  return Math.floor(larger / smaller)
+function scale(larger, smaller) {
+  return Math.floor(larger / smaller);
 }
 
 export class Dimensions {
   constructor(width, height) {
-    this.width = width
-    this.height = height
+    this.width = width;
+    this.height = height;
   }
 
   clamp(containingDimensions) {
-    var width = clamp(0, containingDimensions.width, this.width)
-    var height = clamp(0, containingDimensions.height, this.height)
-    return new Dimensions(width, height)
+    var width = clamp(0, containingDimensions.width, this.width);
+    var height = clamp(0, containingDimensions.height, this.height);
+    return new Dimensions(width, height);
   }
 
   sample(dimensions) {
-    var width = scale(this.width, dimensions.width)
-    var height = scale(this.height, dimensions.height)
-    return new Dimensions(width, height)
+    var width = scale(this.width, dimensions.width);
+    var height = scale(this.height, dimensions.height);
+    return new Dimensions(width, height);
   }
 
-  grow (direction, amount) {
+  grow(direction, amount) {
     switch (direction) {
       case "HORIZONTALLY":
-        return new Dimensions(this.width + amount, this.height)
-        return this.growHorizontally(amount)
+        return new Dimensions(this.width + amount, this.height);
+        return this.growHorizontally(amount);
       case "VERTICALLY":
-        return this.growVertically(amount)
+        return this.growVertically(amount);
       default:
-        throw new Error("Can only grow \"HORIZONTALLY\"  or \"VERTICALLY\".")
+        throw new Error('Can only grow "HORIZONTALLY"  or "VERTICALLY".');
     }
   }
 
-  growHorizontally (amount) {
-    return new Dimensions(this.width + amount, this.height)
+  growHorizontally(amount) {
+    return new Dimensions(this.width + amount, this.height);
   }
 
-  growVertically (amount) {
-    return new Dimensions(this.width, this.height + amount)
+  growVertically(amount) {
+    return new Dimensions(this.width, this.height + amount);
   }
 }
-
 
 export class Point {
   constructor(x, y) {
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   }
 }
 
-Point.ORIGIN = new Point(0, 0)
-
+Point.ORIGIN = new Point(0, 0);
 
 export class Bitmap {
-  constructor (dimensions, transparent = true) {
-    this.dimensions = dimensions
-    this.transparent = transparent
-    this.bitmap = new Array(this.length)
-    return this
+  constructor(dimensions, transparent = true) {
+    this.dimensions = dimensions;
+    this.transparent = transparent;
+    this.bitmap = new Array(this.length);
+    return this;
   }
 
-  get length () {
-    return this.dimensions.width * this.dimensions.height
+  get length() {
+    return this.dimensions.width * this.dimensions.height;
   }
 
-  index (point) {
-    return point.y * this.dimensions.width + point.x
+  index(point) {
+    return point.y * this.dimensions.width + point.x;
   }
 
-  valueAtPoint (point) {
-    return this.bitmap[this.index(point)]
+  valueAtPoint(point) {
+    return this.bitmap[this.index(point)];
   }
 
-  isWithinBounds (point) {
-    return point.x < this.dimensions.width && point.y < this.dimensions.height
+  isWithinBounds(point) {
+    return point.x < this.dimensions.width && point.y < this.dimensions.height;
   }
 
-  append (anotherBitmap) {
-    var newBitmap = new Bitmap()
-    return this
+  append(anotherBitmap) {
+    var newBitmap = new Bitmap();
+    return this;
   }
 
-  drawPixel (point) {
+  drawPixel(point) {
     if (isWithinBounds(point)) {
-      this.buffer[this.index(point)] = true
+      this.buffer[this.index(point)] = true;
     }
   }
 
-  asTwoDimensionalArray () {
-    var array = []
+  asTwoDimensionalArray() {
+    var array = [];
 
     for (var rowIndex = 0; rowIndex < this.dimensions.height; rowIndex++) {
-      for (var columnIndex = 0; columnIndex < this.dimensions.width; columnIndex++) {
-        array[rowIndex][columnIndex] = false
+      for (
+        var columnIndex = 0;
+        columnIndex < this.dimensions.width;
+        columnIndex++
+      ) {
+        array[rowIndex][columnIndex] = false;
       }
     }
 
-    return array
+    return array;
   }
 
-  drawLetter (letter, offset = ORIGIN) {
-    var newFrame = new Bitmap()
-    var xOffset = 0 + offset.x
-    return text.split("").reduce(function (canvas, letter) {
-      var newOffset = createPoint(xOffset, offset.y)
-      var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset)
-      xOffset += width(letterCanvas(letter)) + 1
-      return newCanvas
-    }, canvas)
+  drawLetter(letter, offset = ORIGIN) {
+    var newFrame = new Bitmap();
+    var xOffset = 0 + offset.x;
+    return text.split("").reduce(function(canvas, letter) {
+      var newOffset = createPoint(xOffset, offset.y);
+      var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset);
+      xOffset += width(letterCanvas(letter)) + 1;
+      return newCanvas;
+    }, canvas);
   }
 }
 
@@ -123,30 +125,30 @@ const Directions = {
   UP: 0,
   RIGHT: 1,
   DOWN: 2,
-  LEFT: 3,
-}
+  LEFT: 3
+};
 
 /**
  * return the next positions for a point within the dimensions's bounds
  */
-export function randomWalk (point, dimensions) {
-  var nextDirection = Math.floor(Math.random() * 4)
+export function randomWalk(point, dimensions) {
+  var nextDirection = Math.floor(Math.random() * 4);
 
   if (nextDirection === Directions.UP && point.y > 0) {
-    return new Point(point.x, point.y - 1)
+    return new Point(point.x, point.y - 1);
   }
 
   if (nextDirection === Directions.RIGHT && point.x < dimensions.width) {
-    return new Point(point.x + 1, point.y)
+    return new Point(point.x + 1, point.y);
   }
 
   if (nextDirection === Directions.DOWN && point.y < dimensions.height) {
-    return new Point(point.x, point.y + 1)
+    return new Point(point.x, point.y + 1);
   }
 
   if (nextDirection === Directions.LEFT && point.x < dimensions.width) {
-    return new Point(point.x - 1, point.y)
+    return new Point(point.x - 1, point.y);
   }
 
-  return point
+  return point;
 }
