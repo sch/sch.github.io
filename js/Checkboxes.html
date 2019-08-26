@@ -46,6 +46,23 @@
   let points = [];
   let canvas = emptyCanvas(100, 50);
 
+  onMount(function() {
+    resize();
+    draw();
+
+    var interval = setInterval(tick, 1500);
+
+    var el = document.querySelector(".js-Checkboxes");
+
+    if (el && el.classList.contains("isPaused")) {
+      el.classList.remove("isPaused");
+    }
+
+    return function cleanup() {
+      clearInterval(interval);
+    };
+  });
+
   function draw() {
     if (width > 38) {
       canvas = drawText(canvas, "adrian", createPoint(2, 2));
@@ -88,23 +105,6 @@
     points = points.map(point => randomWalk(point, dimensions));
     draw();
   }
-
-  onMount(function() {
-    resize();
-    draw();
-
-    var interval = setInterval(tick, 1500);
-
-    var el = document.querySelector(".js-Checkboxes");
-
-    if (el && el.classList.contains("isPaused")) {
-      el.classList.remove("isPaused");
-    }
-
-    return function cleanup() {
-      clearInterval(interval);
-    };
-  });
 
   function addPoint(x, y) {
     var newPoint = new Point(x, y);
