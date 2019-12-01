@@ -38,6 +38,7 @@
 
 <script>
   import { onMount } from "svelte";
+
   import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas";
   import { randomWalk, Point, Dimensions } from "./graphics";
   import throttle from "lodash.throttle";
@@ -72,6 +73,7 @@
     }
 
     points.forEach(point => flipBit(canvas, point.x, point.y));
+    points = points;
   }
 
   function viewportDimensions() {
