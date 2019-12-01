@@ -26,7 +26,7 @@
   }
 
   .CheckboxCanvas label {
-    padding: 1px;
+    padding: 3px 2px;
     display: inline-block;
   }
 
@@ -44,7 +44,9 @@
 
   let element;
   let points = [];
-  let canvas = emptyCanvas(100, 50);
+  let width = 50;
+  let height = 50;
+  let canvas = emptyCanvas(width, height);
 
   onMount(function() {
     resize();
@@ -97,6 +99,8 @@
   function resize() {
     var checkbox = element.querySelector("label");
     var dimensions = calculateCanvasDimensions(element.parentNode, checkbox);
+    width = dimensions.width;
+    height = dimensions.height;
     canvas = emptyCanvas(width, height);
   }
 
