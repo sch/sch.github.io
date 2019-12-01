@@ -1,5 +1,3 @@
-import { ALPHABET_MAP } from "./silkscreen";
-
 function clamp(min, max, val) {
   if (val < min) return min;
   if (val > max) return max;
@@ -31,7 +29,6 @@ export class Dimensions {
   grow(direction, amount) {
     switch (direction) {
       case "HORIZONTALLY":
-        return new Dimensions(this.width + amount, this.height);
         return this.growHorizontally(amount);
       case "VERTICALLY":
         return this.growVertically(amount);
@@ -82,13 +79,8 @@ export class Bitmap {
     return point.x < this.dimensions.width && point.y < this.dimensions.height;
   }
 
-  append(anotherBitmap) {
-    var newBitmap = new Bitmap();
-    return this;
-  }
-
   drawPixel(point) {
-    if (isWithinBounds(point)) {
+    if (this.isWithinBounds(point)) {
       this.buffer[this.index(point)] = true;
     }
   }
@@ -109,16 +101,15 @@ export class Bitmap {
     return array;
   }
 
-  drawLetter(letter, offset = ORIGIN) {
-    var newFrame = new Bitmap();
-    var xOffset = 0 + offset.x;
-    return text.split("").reduce(function(canvas, letter) {
-      var newOffset = createPoint(xOffset, offset.y);
-      var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset);
-      xOffset += width(letterCanvas(letter)) + 1;
-      return newCanvas;
-    }, canvas);
-  }
+  // drawLetter(letter, offset = Point.ORIGIN) {
+  //   var xOffset = 0 + offset.x;
+  //   return text.split("").reduce(function(canvas, letter) {
+  //     var newOffset = createPoint(xOffset, offset.y);
+  //     var newCanvas = combineCanvas(canvas, letterCanvas(letter), newOffset);
+  //     xOffset += width(letterCanvas(letter)) + 1;
+  //     return newCanvas;
+  //   }, canvas);
+  // }
 }
 
 const Directions = {

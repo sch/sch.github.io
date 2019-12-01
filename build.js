@@ -1,4 +1,4 @@
-var webpack = require("webpack")
+var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var React = require("react");
 var ReactDOMServer = require("react-dom/server");
@@ -13,7 +13,7 @@ config.module.rules.push({
     fallback: "style-loader",
     use: ["css-loader", "postcss-loader"]
   })
-})
+});
 
 config.plugins = [
   new ExtractTextPlugin("styles.css"),
@@ -27,24 +27,27 @@ config.plugins = [
 
 console.log("Building webpack bundle file...");
 
-webpack(config, function (err, stats) {
+webpack(config, function(err, stats) {
   if (err || stats.hasErrors()) {
-    console.log("something went wrong", err)
+    console.log("something went wrong", err);
   } else {
-    buildResume(stats)
+    buildResume(stats);
   }
-})
+});
 
-function buildResume (stats) {
+function buildResume() {
   console.log("Generating initial HTML page...");
   var Resume = require("./_site/js/resume-bundle");
   var contents = renderToString(Resume.Component);
-  var shell = fs.readFileSync(path.join(__dirname, "index.template.html"), "utf8");
+  var shell = fs.readFileSync(
+    path.join(__dirname, "index.template.html"),
+    "utf8"
+  );
   var html = shell.replace("<!-- yield -->", contents);
   fs.writeFileSync(path.join(__dirname, "src", "resume", "index.html"), html);
   console.log("Done!");
 }
 
-function renderToString (component) {
+function renderToString(component) {
   return ReactDOMServer.renderToString(React.createElement(component));
 }

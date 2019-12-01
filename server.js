@@ -1,4 +1,3 @@
-var path = require("path");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -23,15 +22,15 @@ config.output.publicPath = "/";
 config.module.rules.push({
   test: /\.css$/,
   use: ["style-loader", "css-loader", "postcss-loader"]
-})
+});
 
 config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({
     title: "HOT Resume",
-    template: "js/template.html",
-  }),
+    template: "js/template.html"
+  })
 ];
 
 new WebpackDevServer(webpack(config), {
@@ -40,7 +39,7 @@ new WebpackDevServer(webpack(config), {
   compress: true,
   hot: true,
   historyApiFallback: true
-}).listen(PORT, "localhost", function (err, result) {
+}).listen(PORT, "localhost", function(err) {
   if (err) {
     console.log(err);
   } else {

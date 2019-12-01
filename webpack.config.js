@@ -1,7 +1,6 @@
 var path = require("path");
-var webpack = require("webpack");
 
-var config = module.exports = {};
+var config = (module.exports = {});
 
 config.entry = "./js/resume";
 
@@ -29,4 +28,3 @@ config.module = {
     }
   ]
 };
-

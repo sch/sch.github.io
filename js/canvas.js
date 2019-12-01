@@ -73,27 +73,3 @@ export function drawText(canvas, text, offset) {
     return newCanvas;
   }, canvas);
 }
-
-function textCanvas(text) {
-  return text
-    .split("")
-    .map(letterCanvas)
-    .reduce(function(canvas, letter) {});
-}
-
-function beside(leftCanvas, rightCanvas) {
-  var newWidth = width(leftCanvas) + width(rightCanvas);
-  var newHeight = height(leftCanvas) + height(rightCanvas);
-  var newCanvas = emptyCanvas(newWidth, newHeight);
-  return combineCanvas(
-    combineCanvas(newCanvas, leftCanvas),
-    rightCanvas,
-    createPoint(width(leftCanvas), 0)
-  );
-}
-
-function padCanvas(canvas, side, amount) {
-  // assume side is "left"
-  var SIDE = "left";
-  return canvas;
-}

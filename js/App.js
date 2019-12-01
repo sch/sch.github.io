@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Typekit from "react-typekit";
 
 require("./styles.css");
@@ -48,7 +48,8 @@ function PrintMessage() {
       This resume was generated from a web page available at{" "}
       <a href="https://adrian.schaedle.me/resume">
         https://adrian.schaedle.me/resume
-      </a>. I encourage you to look at that version!
+      </a>
+      . I encourage you to look at that version!
     </div>
   );
 }
@@ -86,33 +87,6 @@ function Job({ job }) {
         <Markdown>{job.description}</Markdown>
       </div>
     </div>
-  );
-}
-
-function Arrange({ children }) {
-  return React.createElement(
-    "div",
-    {
-      className: "Arrange"
-    },
-    children
-  );
-}
-
-function ArrangeItem({ fit, children }) {
-  const kind = fit ? "Fit" : "Fill";
-  const alignment = "middle";
-  const basename = `Arrange-size${kind}`;
-  let classes = [basename];
-  if (alignment) {
-    classes.push(`${basename}--${alignment}`);
-  }
-  return React.createElement(
-    "div",
-    {
-      className: classes.join(" ")
-    },
-    children
   );
 }
 

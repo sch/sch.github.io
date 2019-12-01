@@ -1,19 +1,19 @@
-import Inferno from "inferno";
-import createElement from "inferno-create-element";
+import React from "react";
+import ReactDOM from "react-dom";
 import { emptyCanvas, flipBit } from "./canvas";
 
 const target = document.querySelector(".js-Checkboxes");
 
 function Checkbox(checked) {
-  return createElement("input", { type: "checkbox", checked });
+  return React.createElement("input", { type: "checkbox", checked });
 }
 
 function CheckboxCanvas(canvas) {
   const checkboxCanvas = canvas.map(row =>
-    createElement("div", null, row.map(Checkbox))
+    React.createElement("div", null, row.map(Checkbox))
   );
 
-  return createElement(
+  return React.createElement(
     "div",
     {
       className: "CheckboxCanvasContainer"
@@ -26,7 +26,7 @@ function render() {
   console.log("rendering");
   const { width, height } = getCanvasSize();
   const canvas = emptyCanvas(width, height);
-  Inferno.render(CheckboxCanvas(canvas), target);
+  ReactDOM.render(CheckboxCanvas(canvas), target);
 }
 
 function newCurrentSizeCanvas() {
@@ -51,7 +51,7 @@ update();
 setTimeout(function() {
   const canvas = newCurrentSizeCanvas();
   flipBit(canvas, 5, 5);
-  Inferno.render(CheckboxCanvas(canvas), target);
+  ReactDOM.render(CheckboxCanvas(canvas), target);
 }, 5000);
 
 function tapLog(val) {
