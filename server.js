@@ -8,6 +8,8 @@ var PORT = 3000;
 
 var url = "http://localhost:" + PORT;
 
+config.mode = "development";
+
 config.devtool = "inline-source-map";
 
 config.entry = [

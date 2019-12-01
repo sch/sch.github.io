@@ -24,10 +24,10 @@ that could be used as a basis for teaching programming, including procedural,
 event-based, declarative, and functional reactive programming. These prototypes
 were implemented using web technologies.
 
-Non-programming duties included performing market research and competetive
+Non-programming duties included performing market research and competitive
 analysis for the learn-to-code software space, sourcing and synthesizing
 relevant academic research, administering user testing with kids in public
 schools, interviewing educators to gain insight into how programming is taught
 today, and talking to teams at Google, Microsoft, Apple, and the Lifelong
-Kindergarden Group to suggest points of collaboration.
+Kindergarten Group to suggest points of collaboration.
 

@@ -1,5 +1,7 @@
+process.env.NODE_ENV = "production";
+
 var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var React = require("react");
 var ReactDOMServer = require("react-dom/server");
 var fs = require("fs");
@@ -9,16 +11,13 @@ var config = require("./webpack.config");
 
 config.module.rules.push({
   test: /\.css$/,
-  use: ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: ["css-loader", "postcss-loader"]
-  })
+  use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader", "postcss-loader"]
 });
 
 config.plugins = [
-  new ExtractTextPlugin("styles.css"),
-
-  new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+  new MiniCssExtractPlugin({
+    filename: "styles.css"
+  }),
 
   new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify("production")
@@ -29,7 +28,10 @@ console.log("Building webpack bundle file...");
 
 webpack(config, function(err, stats) {
   if (err || stats.hasErrors()) {
-    console.log("something went wrong", err);
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
   } else {
     buildResume(stats);
   }

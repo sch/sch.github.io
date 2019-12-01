@@ -9,7 +9,8 @@ config.output = {
   path: path.join(__dirname, "_site", "js"),
   publicPath: "/dist/",
   library: "Resume",
-  libraryTarget: "umd"
+  libraryTarget: "umd",
+  globalObject: "this"
 };
 
 config.devtool = "source-map";
