@@ -48,6 +48,12 @@ function getCanvasSize() {
 window.addEventListener("resize", update, false);
 update();
 
+var el = document.querySelector(".js-Checkboxes");
+
+if (el && el.classList.contains("isPaused")) {
+  el.classList.remove("isPaused");
+}
+
 setTimeout(function() {
   const canvas = newCurrentSizeCanvas();
   flipBit(canvas, 5, 5);
