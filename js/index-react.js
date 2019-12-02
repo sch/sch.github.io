@@ -4,13 +4,29 @@ import { emptyCanvas, flipBit } from "./canvas";
 
 const target = document.querySelector(".js-Checkboxes");
 
-function Checkbox(checked) {
-  return React.createElement("input", { type: "checkbox", checked });
+function Checkbox(props) {
+  return React.createElement("input", {
+    type: "checkbox",
+    checked: props.isChecked,
+    onChange: props.onChange
+  });
 }
 
 function CheckboxCanvas(canvas) {
-  const checkboxCanvas = canvas.map(row =>
-    React.createElement("div", null, row.map(Checkbox))
+  const checkboxCanvas = canvas.map((row, rowIndex) =>
+    React.createElement(
+      "div",
+      { key: rowIndex },
+      row.map((isChecked, columnIndex) =>
+        React.createElement(Checkbox, {
+          key: columnIndex,
+          isChecked,
+          onChange: () => {
+            console.log(`Clicked <${columnIndex}, ${rowIndex}>`);
+          }
+        })
+      )
+    )
   );
 
   return React.createElement(
