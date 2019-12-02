@@ -29,11 +29,6 @@ function render() {
   ReactDOM.render(CheckboxCanvas(canvas), target);
 }
 
-function newCurrentSizeCanvas() {
-  const { width, height } = getCanvasSize();
-  return emptyCanvas(width, height);
-}
-
 function update() {
   requestAnimationFrame(render);
 }
@@ -54,11 +49,18 @@ if (el && el.classList.contains("isPaused")) {
   el.classList.remove("isPaused");
 }
 
-setTimeout(function() {
-  const canvas = newCurrentSizeCanvas();
-  flipBit(canvas, 5, 5);
+setInterval(function() {
+  const { width, height } = getCanvasSize();
+  const canvas = emptyCanvas(width, height);
+
+  flipBit(
+    canvas,
+    Math.floor(Math.random() * width),
+    Math.floor(Math.random() * height)
+  );
+
   ReactDOM.render(CheckboxCanvas(canvas), target);
-}, 5000);
+}, 2000);
 
 function log(val) {
   console.log(val);
