@@ -39,7 +39,7 @@ function update() {
 }
 
 function getCanvasSize() {
-  return tapLog({
+  return log({
     width: Math.floor(window.innerWidth / 20),
     height: Math.floor(window.innerHeight / 20)
   });
@@ -60,7 +60,7 @@ setTimeout(function() {
   ReactDOM.render(CheckboxCanvas(canvas), target);
 }, 5000);
 
-function tapLog(val) {
+function log(val) {
   console.log(val);
   return val;
 }

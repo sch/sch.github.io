@@ -38,10 +38,10 @@
 
 <script>
   import { onMount } from "svelte";
+  import throttle from "lodash.throttle";
 
   import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas";
   import { randomWalk, Point, Dimensions } from "./graphics";
-  import throttle from "lodash.throttle";
 
   let element;
   let points = [];

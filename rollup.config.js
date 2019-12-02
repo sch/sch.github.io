@@ -4,8 +4,16 @@ import commonjs from "rollup-plugin-commonjs";
 import { uglify } from "rollup-plugin-uglify";
 import replace from "@rollup/plugin-replace";
 import filesize from "rollup-plugin-bundle-size";
+import babel from "rollup-plugin-babel";
 
-var plugins = [svelte(), nodeResolve(), commonjs()];
+var extensions = [".js", ".jsx", ".ts", ".tsx"];
+
+var plugins = [
+  nodeResolve({ extensions }),
+  commonjs(),
+  svelte(),
+  babel({ extensions })
+];
 
 if (process.env.NODE_ENV === "production") {
   plugins.push(uglify(), filesize());

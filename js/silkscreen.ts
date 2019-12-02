@@ -1,4 +1,4 @@
-export var A = [
+export const A = [
   [false, true, true, false],
   [true, false, false, true],
   [true, true, true, true],
@@ -6,7 +6,7 @@ export var A = [
   [true, false, false, true]
 ];
 
-export var B = [
+export const B = [
   [true, true, true, false],
   [true, false, false, true],
   [true, true, true, true],
@@ -14,7 +14,7 @@ export var B = [
   [true, true, true, false]
 ];
 
-export var C = [
+export const C = [
   [false, true, true, false],
   [true, false, false, true],
   [true, false, false, false],
@@ -22,7 +22,7 @@ export var C = [
   [false, true, true, false]
 ];
 
-export var D = [
+export const D = [
   [true, true, true, false],
   [true, false, false, true],
   [true, false, false, true],
@@ -30,7 +30,7 @@ export var D = [
   [true, true, true, false]
 ];
 
-export var E = [
+export const E = [
   [true, true, true],
   [true, false, false],
   [true, true, true],
@@ -38,7 +38,7 @@ export var E = [
   [true, true, true]
 ];
 
-export var F = [
+export const F = [
   [true, true, true],
   [true, false, false],
   [true, true, true],
@@ -46,7 +46,7 @@ export var F = [
   [true, false, false]
 ];
 
-export var G = [
+export const G = [
   [false, true, true, true],
   [true, false, false, false],
   [true, false, true, true],
@@ -54,7 +54,7 @@ export var G = [
   [false, true, true, false]
 ];
 
-export var H = [
+export const H = [
   [true, false, false, true],
   [true, false, false, true],
   [true, true, true, true],
@@ -62,9 +62,9 @@ export var H = [
   [true, false, false, true]
 ];
 
-export var I = [[true], [true], [true], [true], [true]];
+export const I = [[true], [true], [true], [true], [true]];
 
-export var J = [
+export const J = [
   [false, false, false, true],
   [false, false, false, true],
   [false, false, false, true],
@@ -72,7 +72,7 @@ export var J = [
   [false, true, true, false]
 ];
 
-export var K = [
+export const K = [
   [true, false, false, true],
   [true, false, true, false],
   [true, true, false, false],
@@ -80,7 +80,7 @@ export var K = [
   [true, false, false, true]
 ];
 
-export var L = [
+export const L = [
   [true, false, false],
   [true, false, false],
   [true, false, false],
@@ -88,7 +88,7 @@ export var L = [
   [true, true, true]
 ];
 
-export var M = [
+export const M = [
   [true, false, false, false, true],
   [true, true, false, true, true],
   [true, false, true, false, true],
@@ -96,7 +96,7 @@ export var M = [
   [true, false, false, false, true]
 ];
 
-export var N = [
+export const N = [
   [true, false, false, false, true],
   [true, true, false, false, true],
   [true, false, true, false, true],
@@ -104,7 +104,7 @@ export var N = [
   [true, false, false, false, true]
 ];
 
-export var O = [
+export const O = [
   [false, true, true, true, false],
   [true, false, false, false, true],
   [true, false, false, false, true],
@@ -112,7 +112,7 @@ export var O = [
   [false, true, true, true, false]
 ];
 
-export var P = [
+export const P = [
   [true, true, true, false],
   [true, false, false, true],
   [true, true, true, false],
@@ -120,7 +120,7 @@ export var P = [
   [true, false, false, false]
 ];
 
-export var Q = [
+export const Q = [
   [false, true, true, false],
   [true, false, false, true],
   [true, false, false, true],
@@ -129,7 +129,7 @@ export var Q = [
   [false, false, false, true]
 ];
 
-export var R = [
+export const R = [
   [true, true, true, false],
   [true, false, false, true],
   [true, true, true, false],
@@ -137,7 +137,7 @@ export var R = [
   [true, false, false, true]
 ];
 
-export var S = [
+export const S = [
   [false, true, true, true],
   [true, false, false, false],
   [false, true, true, false],
@@ -145,7 +145,7 @@ export var S = [
   [true, true, true, false]
 ];
 
-export var T = [
+export const T = [
   [true, true, true],
   [false, true, false],
   [false, true, false],
@@ -153,7 +153,7 @@ export var T = [
   [false, true, false]
 ];
 
-export var U = [
+export const U = [
   [true, false, false, true],
   [true, false, false, true],
   [true, false, false, true],
@@ -161,7 +161,7 @@ export var U = [
   [false, true, true, false]
 ];
 
-export var V = [
+export const V = [
   [true, false, false, false, true],
   [true, false, false, false, true],
   [false, true, false, true, false],
@@ -169,7 +169,7 @@ export var V = [
   [false, false, true, false, false]
 ];
 
-export var W = [
+export const W = [
   [true, false, false, false, true],
   [true, false, true, false, true],
   [true, false, true, false, true],
@@ -177,7 +177,7 @@ export var W = [
   [false, true, false, true, false]
 ];
 
-export var X = [
+export const X = [
   [true, false, false, false, true],
   [false, true, false, true, false],
   [false, false, true, false, false],
@@ -185,7 +185,7 @@ export var X = [
   [true, false, false, false, true]
 ];
 
-export var Y = [
+export const Y = [
   [true, false, false, false, true],
   [false, true, false, true, false],
   [false, false, true, false, false],
@@ -193,7 +193,7 @@ export var Y = [
   [false, false, true, false, false]
 ];
 
-export var Z = [
+export const Z = [
   [true, true, true],
   [false, false, true],
   [false, true, false],
@@ -201,7 +201,7 @@ export var Z = [
   [true, true, true]
 ];
 
-export var ALPHABET_MAP = {
+export const ALPHABET_MAP: Record<string, Array<Array<boolean>>> = {
   A: A,
   B: B,
   C: C,
@@ -230,7 +230,7 @@ export var ALPHABET_MAP = {
   Z: Z
 };
 
-export var ALPHABET_ARRAY = [
+export const ALPHABET_ARRAY = [
   A,
   B,
   C,

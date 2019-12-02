@@ -12,6 +12,7 @@
     "plugin:jsx-a11y/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:prettier/recommended",
     "prettier/react"
   ],
@@ -27,5 +28,20 @@
   "rules": {
     "no-console": "off",
     "react/prop-types": "off"
-  }
+  },
+  "overrides": [
+    {
+      files: ["**/*.ts?(x)"],
+      parser: "@typescript-eslint/parser",
+      extends: [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ],
+      rules: {
+        // Turn off prop-types rule when we have static types
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }
