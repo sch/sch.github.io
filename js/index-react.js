@@ -23,7 +23,7 @@ function CheckboxCanvas(canvas) {
 }
 
 function render() {
-  console.log("rendering");
+  log("rendering");
   const { width, height } = getCanvasSize();
   const canvas = emptyCanvas(width, height);
   ReactDOM.render(CheckboxCanvas(canvas), target);
@@ -34,7 +34,7 @@ function update() {
 }
 
 function getCanvasSize() {
-  return log({
+  return log("canvas size", {
     width: Math.floor(window.innerWidth / 20),
     height: Math.floor(window.innerHeight / 20)
   });
@@ -62,7 +62,7 @@ setInterval(function() {
   ReactDOM.render(CheckboxCanvas(canvas), target);
 }, 2000);
 
-function log(val) {
-  console.log(val);
+function log(msg, val) {
+  console.log(msg, val);
   return val;
 }
