@@ -34,6 +34,7 @@ function Checkbox(props) {
 
 function CheckboxCanvas() {
   const windowSize = useWindowSize();
+  const [points, setPoints] = React.useState([]);
   const [point, setPoint] = React.useState(null);
 
   const width = Math.floor(windowSize.width / 20);
@@ -60,6 +61,20 @@ function CheckboxCanvas() {
     flipBit(canvas, point.x, point.y);
   }
 
+  points.forEach(({ x, y }) => flipBit(canvas, x, y));
+
+  function togglePoint(changedPoint) {
+    let newPoints = points.filter(
+      ({ x, y }) => !(x === changedPoint.x && y === changedPoint.y)
+    );
+
+    if (newPoints.length === points.length) {
+      newPoints = [...points, changedPoint];
+    }
+
+    setPoints(newPoints);
+  }
+
   const checkboxes = canvas.map((row, rowIndex) =>
     React.createElement(
       "div",
@@ -70,6 +85,7 @@ function CheckboxCanvas() {
           isChecked,
           onChange: () => {
             console.log(`Clicked (${columnIndex}, ${rowIndex})`);
+            togglePoint({ x: columnIndex, y: rowIndex });
           }
         })
       )
