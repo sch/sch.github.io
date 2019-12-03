@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { emptyCanvas, flipBit } from "./canvas";
+import { randomWalk } from "./graphics";
 
 function currentWindowSize() {
   return { width: window.innerWidth, height: window.innerHeight };
@@ -27,7 +28,7 @@ function useWindowSize() {
 function Checkbox(props) {
   return React.createElement(
     "label",
-    { style: { padding: 5, display: "inline-block" } },
+    { style: { padding: "4px 3px", display: "inline-block" } },
     React.createElement("input", {
       type: "checkbox",
       checked: props.isChecked,
@@ -40,31 +41,26 @@ function Checkbox(props) {
 function CheckboxCanvas() {
   const windowSize = useWindowSize();
   const [points, setPoints] = React.useState([]);
-  const [point, setPoint] = React.useState(null);
 
-  const width = Math.floor(windowSize.width / 22);
-  const height = Math.floor(windowSize.height / 22);
+  const dimensions = {
+    width: Math.floor(windowSize.width / 22),
+    height: Math.floor(windowSize.height / 22)
+  };
 
-  React.useEffect(function() {
-    const interval = setInterval(function() {
-      const randomPoint = {
-        x: Math.floor(Math.random() * width),
-        y: Math.floor(Math.random() * height)
+  React.useEffect(
+    function() {
+      const interval = setInterval(function() {
+        setPoints(points.map(point => randomWalk(point, dimensions)));
+      }, 1000);
+
+      return function cleanup() {
+        clearInterval(interval);
       };
+    },
+    [points]
+  );
 
-      setPoint(randomPoint);
-    }, 2000);
-
-    return function cleanup() {
-      clearInterval(interval);
-    };
-  }, []);
-
-  const canvas = emptyCanvas(width, height);
-
-  if (point) {
-    flipBit(canvas, point.x, point.y);
-  }
+  const canvas = emptyCanvas(dimensions.width, dimensions.height);
 
   points.forEach(({ x, y }) => flipBit(canvas, x, y));
 
