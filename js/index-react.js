@@ -87,7 +87,7 @@ function CheckboxCanvas() {
 
 const target = document.querySelector(".js-Checkboxes");
 
-ReactDOM.render(React.createElement(CheckboxCanvas), target);
+ReactDOM.createRoot(target).render(React.createElement(CheckboxCanvas));
 
 if (target && target.classList.contains("isPaused")) {
   target.classList.remove("isPaused");
