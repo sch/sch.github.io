@@ -25,11 +25,16 @@ function useWindowSize() {
 }
 
 function Checkbox(props) {
-  return React.createElement("input", {
-    type: "checkbox",
-    checked: props.isChecked,
-    onChange: props.onChange
-  });
+  return React.createElement(
+    "label",
+    { style: { padding: 5, display: "inline-block" } },
+    React.createElement("input", {
+      type: "checkbox",
+      checked: props.isChecked,
+      onChange: props.onChange,
+      style: { margin: 0, padding: 0 }
+    })
+  );
 }
 
 function CheckboxCanvas() {
@@ -37,8 +42,8 @@ function CheckboxCanvas() {
   const [points, setPoints] = React.useState([]);
   const [point, setPoint] = React.useState(null);
 
-  const width = Math.floor(windowSize.width / 20);
-  const height = Math.floor(windowSize.height / 20);
+  const width = Math.floor(windowSize.width / 22);
+  const height = Math.floor(windowSize.height / 22);
 
   React.useEffect(function() {
     const interval = setInterval(function() {
@@ -48,7 +53,7 @@ function CheckboxCanvas() {
       };
 
       setPoint(randomPoint);
-    }, 1000);
+    }, 2000);
 
     return function cleanup() {
       clearInterval(interval);
@@ -78,7 +83,7 @@ function CheckboxCanvas() {
   const checkboxes = canvas.map((row, rowIndex) =>
     React.createElement(
       "div",
-      { key: rowIndex },
+      { key: rowIndex, style: { lineHeight: 0 } },
       row.map((isChecked, columnIndex) =>
         React.createElement(Checkbox, {
           key: columnIndex,
