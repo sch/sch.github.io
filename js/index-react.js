@@ -2,7 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { emptyCanvas, flipBit } from "./canvas";
 
-const target = document.querySelector(".js-Checkboxes");
+function currentWindowSize() {
+  return { width: window.innerWidth, height: window.innerHeight };
+}
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = React.useState(currentWindowSize());
+
+  React.useEffect(function() {
+    function handleResize() {
+      setWindowSize(currentWindowSize());
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return function unmount() {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return windowSize;
+}
 
 function Checkbox(props) {
   return React.createElement("input", {
@@ -12,8 +32,35 @@ function Checkbox(props) {
   });
 }
 
-function CheckboxCanvas(canvas) {
-  const checkboxCanvas = canvas.map((row, rowIndex) =>
+function CheckboxCanvas() {
+  const windowSize = useWindowSize();
+  const [point, setPoint] = React.useState(null);
+
+  const width = Math.floor(windowSize.width / 20);
+  const height = Math.floor(windowSize.height / 20);
+
+  React.useEffect(function() {
+    const interval = setInterval(function() {
+      const randomPoint = {
+        x: Math.floor(Math.random() * width),
+        y: Math.floor(Math.random() * height)
+      };
+
+      setPoint(randomPoint);
+    }, 1000);
+
+    return function cleanup() {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const canvas = emptyCanvas(width, height);
+
+  if (point) {
+    flipBit(canvas, point.x, point.y);
+  }
+
+  const checkboxes = canvas.map((row, rowIndex) =>
     React.createElement(
       "div",
       { key: rowIndex },
@@ -22,7 +69,7 @@ function CheckboxCanvas(canvas) {
           key: columnIndex,
           isChecked,
           onChange: () => {
-            console.log(`Clicked <${columnIndex}, ${rowIndex}>`);
+            console.log(`Clicked (${columnIndex}, ${rowIndex})`);
           }
         })
       )
@@ -34,51 +81,14 @@ function CheckboxCanvas(canvas) {
     {
       className: "CheckboxCanvasContainer"
     },
-    checkboxCanvas
+    checkboxes
   );
 }
 
-function render() {
-  log("rendering");
-  const { width, height } = getCanvasSize();
-  const canvas = emptyCanvas(width, height);
-  ReactDOM.render(CheckboxCanvas(canvas), target);
-}
+const target = document.querySelector(".js-Checkboxes");
 
-function update() {
-  requestAnimationFrame(render);
-}
+ReactDOM.render(React.createElement(CheckboxCanvas), target);
 
-function getCanvasSize() {
-  return log("canvas size", {
-    width: Math.floor(window.innerWidth / 20),
-    height: Math.floor(window.innerHeight / 20)
-  });
-}
-
-window.addEventListener("resize", update, false);
-update();
-
-var el = document.querySelector(".js-Checkboxes");
-
-if (el && el.classList.contains("isPaused")) {
-  el.classList.remove("isPaused");
-}
-
-setInterval(function() {
-  const { width, height } = getCanvasSize();
-  const canvas = emptyCanvas(width, height);
-
-  flipBit(
-    canvas,
-    Math.floor(Math.random() * width),
-    Math.floor(Math.random() * height)
-  );
-
-  ReactDOM.render(CheckboxCanvas(canvas), target);
-}, 2000);
-
-function log(msg, val) {
-  console.log(msg, val);
-  return val;
+if (target && target.classList.contains("isPaused")) {
+  target.classList.remove("isPaused");
 }
