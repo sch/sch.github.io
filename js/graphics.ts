@@ -1,32 +1,35 @@
-function clamp(min, max, val) {
+function clamp(min: number, max: number, val: number): number {
   if (val < min) return min;
   if (val > max) return max;
   return val;
 }
 
-function scale(larger, smaller) {
+function scale(larger: number, smaller: number): number {
   return Math.floor(larger / smaller);
 }
 
 export class Dimensions {
-  constructor(width, height) {
+  width: number;
+  height: number;
+
+  constructor(width: number, height: number) {
     this.width = width;
     this.height = height;
   }
 
-  clamp(containingDimensions) {
-    var width = clamp(0, containingDimensions.width, this.width);
-    var height = clamp(0, containingDimensions.height, this.height);
+  clamp(containingDimensions: Dimensions): Dimensions {
+    const width = clamp(0, containingDimensions.width, this.width);
+    const height = clamp(0, containingDimensions.height, this.height);
     return new Dimensions(width, height);
   }
 
-  sample(dimensions) {
-    var width = scale(this.width, dimensions.width);
-    var height = scale(this.height, dimensions.height);
+  sample(dimensions: Dimensions): Dimensions {
+    const width = scale(this.width, dimensions.width);
+    const height = scale(this.height, dimensions.height);
     return new Dimensions(width, height);
   }
 
-  grow(direction, amount) {
+  grow(direction: "HORIZONTALLY" | "VERTICALLY", amount: number): Dimensions {
     switch (direction) {
       case "HORIZONTALLY":
         return this.growHorizontally(amount);
@@ -37,60 +40,65 @@ export class Dimensions {
     }
   }
 
-  growHorizontally(amount) {
+  growHorizontally(amount: number): Dimensions {
     return new Dimensions(this.width + amount, this.height);
   }
 
-  growVertically(amount) {
+  growVertically(amount: number): Dimensions {
     return new Dimensions(this.width, this.height + amount);
   }
 }
 
 export class Point {
-  constructor(x, y) {
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 }
 
-Point.ORIGIN = new Point(0, 0);
-
 export class Bitmap {
-  constructor(dimensions, transparent = true) {
+  dimensions: Dimensions;
+  transparent: boolean;
+  bitmap: boolean[];
+
+  constructor(dimensions: Dimensions, transparent = true) {
     this.dimensions = dimensions;
     this.transparent = transparent;
     this.bitmap = new Array(this.length);
     return this;
   }
 
-  get length() {
+  get length(): number {
     return this.dimensions.width * this.dimensions.height;
   }
 
-  index(point) {
+  index(point: Point): number {
     return point.y * this.dimensions.width + point.x;
   }
 
-  valueAtPoint(point) {
+  valueAtPoint(point: Point): boolean {
     return this.bitmap[this.index(point)];
   }
 
-  isWithinBounds(point) {
+  isWithinBounds(point: Point): boolean {
     return point.x < this.dimensions.width && point.y < this.dimensions.height;
   }
 
-  drawPixel(point) {
+  drawPixel(point: Point): void {
     if (this.isWithinBounds(point)) {
-      this.buffer[this.index(point)] = true;
+      this.bitmap[this.index(point)] = true;
     }
   }
 
-  asTwoDimensionalArray() {
-    var array = [];
+  asTwoDimensionalArray(): boolean[][] {
+    const array: boolean[][] = [];
 
-    for (var rowIndex = 0; rowIndex < this.dimensions.height; rowIndex++) {
+    for (let rowIndex = 0; rowIndex < this.dimensions.height; rowIndex++) {
       for (
-        var columnIndex = 0;
+        let columnIndex = 0;
         columnIndex < this.dimensions.width;
         columnIndex++
       ) {
@@ -101,7 +109,7 @@ export class Bitmap {
     return array;
   }
 
-  // drawLetter(letter, offset = Point.ORIGIN) {
+  // drawLetter(letter, offset = new Point(0, 0)) {
   //   var xOffset = 0 + offset.x;
   //   return text.split("").reduce(function(canvas, letter) {
   //     var newOffset = createPoint(xOffset, offset.y);
@@ -122,8 +130,8 @@ const Directions = {
 /**
  * return the next positions for a point within the dimensions's bounds
  */
-export function randomWalk(point, dimensions) {
-  var nextDirection = Math.floor(Math.random() * 4);
+export function randomWalk(point: Point, dimensions: Dimensions): Point {
+  const nextDirection = Math.floor(Math.random() * 4);
 
   if (nextDirection === Directions.UP && point.y > 0) {
     return new Point(point.x, point.y - 1);
