@@ -46,22 +46,8 @@
     points = points;
   }
 
-  function viewportDimensions() {
-    var { clientWidth, clientHeight } = document.documentElement;
-    var width = Math.max(clientWidth, window.innerWidth || 0);
-    var height = Math.max(clientHeight, window.innerHeight || 0);
-    return new Dimensions(width, height);
-  }
-
   function elementDimensions(element) {
     return new Dimensions(element.clientWidth || 0, element.clientHeight || 0);
-  }
-
-  function calculateCanvasDimensions(containerElement, checkboxElement) {
-    const containerDimensions = elementDimensions(containerElement);
-    const checkboxDimensions = elementDimensions(checkboxElement);
-    const adjustedDimensions = containerDimensions.clamp(viewportDimensions());
-    return adjustedDimensions.sample(checkboxDimensions);
   }
 
   function tick() {
