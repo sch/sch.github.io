@@ -1,41 +1,3 @@
-<div bind:this="{element}" class="CheckboxCanvas">
-  {#each canvas as row, y}
-  <div>
-    {#each row as checked, x}
-    <label>
-      <input type="checkbox" {checked} on:change={() => addPoint(x, y)}/>
-    </label>
-    {/each}
-  </div>
-  {/each}
-</div>
-
-<svelte:window on:resize="{resize}" />
-
-<style>
-  .CheckboxCanvas {
-    box-sizing: border-box;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-
-  .CheckboxCanvas div {
-    margin: 0;
-    line-height: 0;
-  }
-
-  .CheckboxCanvas label {
-    padding: 3px 2px;
-    display: inline-block;
-  }
-
-  .CheckboxCanvas input {
-    margin: 0;
-    padding: 0;
-  }
-</style>
-
 <script>
   import { onMount } from "svelte";
   import throttle from "lodash.throttle";
@@ -45,12 +7,20 @@
 
   let element;
   let points = [];
-  let width = 50;
-  let height = 50;
-  let canvas = emptyCanvas(width, height);
+  let clientWidth = 10;
+  let clientHeight = 10;
+  let sampledDimensions = new Dimensions(10, 10);
+  let canvas = emptyCanvas(sampledDimensions.width, sampledDimensions.height);
+
+  $: if (element) {
+    const containerDimensions = new Dimensions(clientWidth, clientHeight);
+    const checkboxElement = element.querySelector("label");
+    const checkboxDimensions = elementDimensions(checkboxElement);
+    sampledDimensions = containerDimensions.sample(checkboxDimensions);
+    canvas = emptyCanvas(sampledDimensions.width, sampledDimensions.height);
+  }
 
   onMount(function() {
-    resize();
     draw();
 
     var interval = setInterval(tick, 1500);
@@ -67,7 +37,7 @@
   });
 
   function draw() {
-    if (width > 38) {
+    if (sampledDimensions.width > 38) {
       canvas = drawText(canvas, "adrian", createPoint(2, 2));
       canvas = drawText(canvas, "schaedle", createPoint(2, 9));
     }
@@ -94,21 +64,8 @@
     return adjustedDimensions.sample(checkboxDimensions);
   }
 
-  function randomInRange(upperLimit) {
-    return Math.floor(Math.random() * upperLimit);
-  }
-
-  function resize() {
-    var checkbox = element.querySelector("label");
-    var dimensions = calculateCanvasDimensions(element.parentNode, checkbox);
-    width = dimensions.width;
-    height = dimensions.height;
-    canvas = emptyCanvas(width, height);
-  }
-
   function tick() {
-    var dimensions = new Dimensions(width, height);
-    points = points.map(point => randomWalk(point, dimensions));
+    points = points.map(point => randomWalk(point, sampledDimensions));
     draw();
   }
 
@@ -117,3 +74,53 @@
     points.push(newPoint);
   }
 </script>
+
+<style>
+  .CheckboxCanvas {
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Info {
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+  }
+
+  .CheckboxCanvas div {
+    margin: 0;
+    line-height: 0;
+  }
+
+  .CheckboxCanvas label {
+    padding: 3px 2px;
+    display: inline-block;
+  }
+
+  .CheckboxCanvas input {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<div
+  bind:this="{element}"
+  bind:clientWidth="{clientWidth}"
+  bind:clientHeight="{clientHeight}"
+  class="CheckboxCanvas"
+>
+  {#each canvas as row, y}
+  <div>
+    {#each row as checked, x}
+    <label>
+      <input type="checkbox" {checked} on:change={() => addPoint(x, y)}/>
+    </label>
+    {/each}
+  </div>
+  {/each}
+</div>
