@@ -24,3 +24,4 @@ npm-debug.log
 " Ignore local gems
 /vendor
 /.bundle
+.jekyll-cache
