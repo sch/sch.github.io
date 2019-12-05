@@ -56,8 +56,10 @@
   }
 
   function addPoint(x, y) {
-    var newPoint = new Point(x, y);
-    points.push(newPoint);
+    return function() {
+      var newPoint = new Point(x, y);
+      points.push(newPoint);
+    };
   }
 </script>
 
@@ -104,7 +106,7 @@
   <div>
     {#each row as checked, x}
     <label>
-      <input type="checkbox" {checked} on:change={() => addPoint(x, y)}/>
+      <input type="checkbox" {checked} on:change="{addPoint(x, y)}" />
     </label>
     {/each}
   </div>
