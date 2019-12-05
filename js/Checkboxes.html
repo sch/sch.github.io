@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import throttle from "lodash.throttle";
 
-  import { drawText, emptyCanvas, createPoint, flipBit } from "./canvas";
+  import { drawText, emptyCanvas, flipBit } from "./canvas";
   import { randomWalk, Point, Dimensions } from "./graphics";
 
   let element;
@@ -38,8 +38,8 @@
 
   function draw() {
     if (sampledDimensions.width > 38) {
-      canvas = drawText(canvas, "adrian", createPoint(2, 2));
-      canvas = drawText(canvas, "schaedle", createPoint(2, 9));
+      canvas = drawText(canvas, "adrian", new Point(2, 2));
+      canvas = drawText(canvas, "schaedle", new Point(2, 9));
     }
 
     points.forEach(point => flipBit(canvas, point.x, point.y));
