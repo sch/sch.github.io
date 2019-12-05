@@ -18,11 +18,17 @@
     const checkboxDimensions = elementDimensions(checkboxElement);
     sampledDimensions = containerDimensions.sample(checkboxDimensions);
     canvas = emptyCanvas(sampledDimensions.width, sampledDimensions.height);
+
+    if (sampledDimensions.width > 38) {
+      canvas = drawText(canvas, "adrian", new Point(2, 2));
+      canvas = drawText(canvas, "schaedle", new Point(2, 9));
+    }
+
+    points.forEach(point => flipBit(canvas, point.x, point.y));
+    points = points;
   }
 
   onMount(function() {
-    draw();
-
     var interval = setInterval(tick, 1500);
 
     var el = document.querySelector(".js-Checkboxes");
@@ -36,23 +42,12 @@
     };
   });
 
-  function draw() {
-    if (sampledDimensions.width > 38) {
-      canvas = drawText(canvas, "adrian", new Point(2, 2));
-      canvas = drawText(canvas, "schaedle", new Point(2, 9));
-    }
-
-    points.forEach(point => flipBit(canvas, point.x, point.y));
-    points = points;
-  }
-
   function elementDimensions(element) {
     return new Dimensions(element.clientWidth || 0, element.clientHeight || 0);
   }
 
   function tick() {
     points = points.map(point => randomWalk(point, sampledDimensions));
-    draw();
   }
 
   function addPoint(x, y) {
