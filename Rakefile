@@ -9,14 +9,13 @@ new_post_ext = "markdown"  # default new post file extension when using the new_
 
 # usage rake new
 desc "Begin a new post in #{posts_dir}"
-
 task :new do
   puts "What should we call this post for now?"
-  name = STDIN.gets.chomp
+  title = STDIN.gets.chomp
 
   mkdir_p "#{posts_dir}"
-  title = name
-  filename = "#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  date = Time.now.strftime('%Y-%m-%d')
+  filename = "#{posts_dir}/#{date}-#{title.to_url}.#{new_post_ext}"
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     system "mkdir -p #{posts_dir}/";
@@ -30,17 +29,23 @@ task :new do
   end
 end
 
+task :default => [:buildjs, :generate]
 
-desc "Startup Jekyll"
-task :start do
+desc "Run a development server"
+multitask :develop => [:server, :watchjs]
+
+task :server do
   sh "jekyll server --incremental"
 end
 
-task :default => :start
+task :watchjs do
+  sh "npm run server:checkboxes"
+end
+
 
 GITHUB_REPONAME = "sch/sch.github.io"
 
-desc "Generate blog files"
+desc "Compile Jekyll site"
 task :generate do
   ENV["JEKYLL_ENV"] = "production"
   Jekyll::Site.new(Jekyll.configuration).process
