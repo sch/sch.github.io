@@ -1,27 +1,33 @@
 import svelte from "rollup-plugin-svelte";
-import nodeResolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import { uglify } from "rollup-plugin-uglify";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
 import replace from "@rollup/plugin-replace";
 import filesize from "rollup-plugin-bundle-size";
-import babel from "rollup-plugin-babel";
+import typescript from "@rollup/plugin-typescript";
+import autoPreprocess from "svelte-preprocess";
 
-var extensions = [".js", ".jsx", ".ts", ".tsx"];
+const isProduction = !process.env.ROLLUP_WATCH;
 
 var plugins = [
-  nodeResolve({ extensions }),
+  svelte({ dev: !isProduction, preprocess: autoPreprocess() }),
+  nodeResolve({ browser: true, dedupe: ["svelte"] }),
   commonjs(),
-  svelte(),
-  babel({ extensions })
+  typescript({ sourceMap: !isProduction }),
+  replace({
+    "process.env.NODE_ENV": JSON.stringify(
+      isProduction ? "production" : "development"
+    )
+  })
 ];
 
-if (process.env.NODE_ENV === "production") {
-  plugins.push(uglify(), filesize());
+if (isProduction) {
+  plugins.push(terser(), filesize());
 }
 
 export default [
   {
-    input: "js/index.js",
+    input: "js/index.ts",
     output: {
       file: "_site/js/bundle.js",
       format: "iife",
@@ -36,13 +42,6 @@ export default [
       format: "iife",
       sourcemap: true
     },
-    plugins: [
-      replace({
-        "process.env.NODE_ENV": JSON.stringify(
-          process.env.NODE_ENV || "development"
-        )
-      }),
-      ...plugins
-    ]
+    plugins
   }
 ];
