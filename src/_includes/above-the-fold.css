@@ -28,6 +28,7 @@ p {
 }
 
 .Intro-byline {
+  margin-top: 0.618em;
   flex-shrink: 0;
 }
 
