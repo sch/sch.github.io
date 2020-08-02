@@ -29,6 +29,7 @@ export default [
   {
     input: "js/index.ts",
     output: {
+      name: "checkboxes",
       file: "_site/js/bundle.js",
       format: "iife",
       sourcemap: true
@@ -38,6 +39,7 @@ export default [
   {
     input: "js/index-react.js",
     output: {
+      name: "reactCheckboxes",
       file: "_site/js/bundle-react.js",
       format: "iife",
       sourcemap: true
