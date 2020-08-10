@@ -3,6 +3,7 @@ require 'rake'
 require 'fileutils'
 require 'stringex'
 require 'jekyll'
+require 'tmpdir'
 
 posts_dir = "stock/_posts"    # directory for blog files
 new_post_ext = "markdown"  # default new post file extension when using the new_post task
@@ -65,7 +66,7 @@ task :publish => [:buildjs, :generate] do
     system "git init"
     system "git add ."
     message = "Site updated at #{Time.now.utc}"
-    system "git commit -m #{message.shellescape}"
+    system "git commit -m '#{message}'"
     system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
     system "git push origin master --force"
   end
