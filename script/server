@@ -6,4 +6,4 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-bundle exec rake
+bundle exec rake develop
