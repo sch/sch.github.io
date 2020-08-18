@@ -1,8 +1,6 @@
 import React from "react";
 import Typekit from "react-typekit";
 
-require("./styles.css");
-
 const intro = require("./intro.markdown");
 const {
   contracting,

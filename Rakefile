@@ -33,16 +33,11 @@ end
 task :default => [:buildjs, :generate]
 
 desc "Run a development server"
-multitask :develop => [:server, :watchjs]
+multitask :develop => [:buildjs, :server]
 
 task :server do
   sh "jekyll server --incremental"
 end
-
-task :watchjs do
-  sh "npm run server:checkboxes"
-end
-
 
 GITHUB_REPONAME = "sch/sch.github.io"
 

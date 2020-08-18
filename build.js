@@ -42,7 +42,7 @@ function buildResume() {
   var Resume = require("./_site/js/resume-bundle");
   var contents = renderToString(Resume.Component);
   var shell = fs.readFileSync(
-    path.join(__dirname, "index.template.html"),
+    path.join(__dirname, "js/template.html"),
     "utf8"
   );
   var html = shell.replace("<!-- yield -->", contents);
