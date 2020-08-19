@@ -41,10 +41,7 @@ function buildResume() {
   console.log("Generating initial HTML page...");
   var Resume = require("./_site/js/resume-bundle");
   var contents = renderToString(Resume.Component);
-  var shell = fs.readFileSync(
-    path.join(__dirname, "js/template.html"),
-    "utf8"
-  );
+  var shell = fs.readFileSync(path.join(__dirname, "js/template.html"), "utf8");
   var html = shell.replace("<!-- yield -->", contents);
   fs.writeFileSync(path.join(__dirname, "src", "resume", "index.html"), html);
   console.log("Done!");

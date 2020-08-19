@@ -18,11 +18,7 @@ const adrian = {
 
 export default function App() {
   return (
-    <div className="Resume">
-      <PrintMessage />
-      <Header person={adrian}>
-        <Markdown>{intro}</Markdown>
-      </Header>
+    <div>
       <div className="Groups">
         <Grouping title="Experience">
           <Job job={contracting} />

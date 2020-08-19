@@ -1,3 +1,6 @@
+---
+email: adrian@schaedle.me
+---
 <!DOCTYPE html>
 
 <!--
@@ -7,6 +10,8 @@ If you're viewing source and would like to evaluate the codebase, check out:
 
 </html>
 -->
+
+{% capture intro %}{% include_relative intro.md %}{% endcapture %}
 
 <html>
   <head>
@@ -18,7 +23,22 @@ If you're viewing source and would like to evaluate the codebase, check out:
     <link rel="stylesheet" href="/assets/stylesheets/resume.css" media="all">
   </head>
   <body>
-    <div id="root"><!-- yield --></div>
+    <div class="Resume">
+      <div class="PrintMessage">
+        This resume was generated from a web page available at<!-- -->
+        <a href="https://adrian.schaedle.me/resume">https://adrian.schaedle.me/resume</a>
+        . I encourage you to look at that version!
+      </div>
+
+      <div class="Header clearfix">
+        <div class="Resume-contact">
+          <h1 class="Resume-name">Adrian Schaedle</h1>
+          <div class="Resume-email">{{page.email}}</div>
+        </div>
+        <div class="Resume-intro">{{ intro | markdownify }}</div>
+      </div>
+      <!-- yield -->
+    </div>
   </body>
   <script src="/js/resume-bundle.js"></script>
   <script>
