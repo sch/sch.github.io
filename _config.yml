@@ -2,13 +2,8 @@ permalink: /:year/:month/:day/:title
 debug: false
 timezone: America/New_York
 source: src
-keep_files:
-  - js
-exclude:
-  - js/node_modules
-  - resume/node_modules
 plugins:
-  - jekyll-remote-theme
+- jekyll-remote-theme
 remote_theme: sch/jekyll-theme
 
 typekit: zal0bho
@@ -16,9 +11,8 @@ analytics:
   google: UA-33235804-1
 
 defaults:
-  -
-    scope:
-      type: "posts"
-    values:
-      layout: "skeleton"
-      author: "Adrian Schaedle"
+- scope:
+    type: "posts"
+  values:
+    layout: "skeleton"
+    author: "Adrian Schaedle"

@@ -16,11 +16,6 @@ Thumbs.db
 
 .asset-cache
 
-yarn-error.log
-node_modules
-.tern-port
-npm-debug.log
-
 " Ignore local gems
 /vendor
 /.bundle

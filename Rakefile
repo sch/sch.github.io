@@ -5,11 +5,14 @@ require 'stringex'
 require 'jekyll'
 require 'tmpdir'
 
+
+GITHUB_REPONAME = "sch/sch.github.io"
+
 posts_dir = "stock/_posts"    # directory for blog files
 new_post_ext = "markdown"  # default new post file extension when using the new_post task
 
 # usage rake new
-desc "Begin a new post in #{posts_dir}"
+desc "Wizard for a new post in #{posts_dir}"
 task :new do
   puts "What should we call this post for now?"
   title = STDIN.gets.chomp
@@ -30,31 +33,21 @@ task :new do
   end
 end
 
-task :default => [:buildjs, :generate]
+desc "Generate HTML files once"
+task :default => :generate
 
-desc "Run a development server"
-multitask :develop => [:buildjs, :server]
-
-task :server do
+desc "Start a server for local development"
+task :develop do
   sh "jekyll server --incremental"
 end
 
-GITHUB_REPONAME = "sch/sch.github.io"
-
-desc "Compile Jekyll site"
 task :generate do
   ENV["JEKYLL_ENV"] = "production"
   Jekyll::Site.new(Jekyll.configuration).process
 end
 
-desc "Build javascript files"
-task :buildjs do
-  sh "NODE_ENV=production npm run build"
-end
-
-
 desc "Generate and publish blog to gh-pages"
-task :publish => [:buildjs, :generate] do
+task :publish => :generate do
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
     Dir.chdir tmp

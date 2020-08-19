@@ -1,17 +1,17 @@
-A Jekyll blog, with some additional pieces that allow building assets [outside
-of Jekyll's restrictions for
+Website for Adrian Schaedle.
+
+It's implemented as a Jekyll blog, with some additional pieces that allow
+building assets [outside of Jekyll's restrictions for
 github](https://help.github.com/articles/about-github-pages-and-jekyll/).
 
 ```
-● rake --tasks
-rake buildjs   # Build javascript files
-rake generate  # Generate blog files
-rake new       # Begin a new post in stock/_posts
-rake publish   # Generate and publish blog to gh-pages
-rake start     # Startup Jekyll
+$ rake --tasks
+rake default  # Generate HTML files once
+rake develop  # Start a server for local development
+rake new      # Wizard for a new post in stock/_posts
+rake publish  # Generate and publish blog to gh-pages
 ```
 
-Run `rake start` to bulid the Jekyll site locally, `rake publish` to build the
-site and upload the finished directory to the `master` branch. Run `npm run
-server` to continually build the resume page, run `npm run server:checkboxes` to
-run the development server for the homepage.
+The theme for this website is available at
+[sch/jekyll-theme](https://github.com/sch/jekyll-theme).
+
