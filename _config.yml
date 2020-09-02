@@ -1,6 +1,6 @@
 permalink: /:year/:month/:day/:title
-debug: false
 timezone: America/New_York
+
 plugins:
 - jekyll-remote-theme
 remote_theme: sch/jekyll-theme
@@ -9,8 +9,6 @@ exclude:
   - README.md
   - Rakefile
   - script/
-  - Gemfile
-  - Gemfile.lock
 
 typekit: zal0bho
 analytics:
