@@ -11,8 +11,6 @@ exclude:
   - script/
 
 typekit: zal0bho
-analytics:
-  google: UA-33235804-1
 
 defaults:
 - scope:
