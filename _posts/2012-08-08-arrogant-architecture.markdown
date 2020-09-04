@@ -1,5 +1,4 @@
 ---
-layout: stock
 title: "Arrogant Architecture"
 date: 2012-08-08 14:29
 ---

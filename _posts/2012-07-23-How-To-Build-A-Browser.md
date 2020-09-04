@@ -1,5 +1,4 @@
 ---
-layout: stock
 title: How To Build A Browser
 ---
 

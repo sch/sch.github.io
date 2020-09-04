@@ -1,5 +1,4 @@
 ---
-layout: skeleton
 published: true
 ---
 

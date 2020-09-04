@@ -1,5 +1,4 @@
 ---
-layout: skeleton
 title: "fuzz"
 date: 2017-06-27 15:22
 comments: true
