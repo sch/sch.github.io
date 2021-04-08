@@ -16,5 +16,4 @@ defaults:
 - scope:
     type: "posts"
   values:
-    layout: "skeleton"
     author: "Adrian Schaedle"

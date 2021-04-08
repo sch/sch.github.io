@@ -7,7 +7,7 @@ require 'tmpdir'
 
 GITHUB_REPONAME = "sch/sch.github.io"
 
-posts_dir = "stock/_posts"    # directory for blog files
+posts_dir = "_posts"    # directory for blog files
 new_post_ext = "markdown"  # default new post file extension when using the new_post task
 
 # usage rake new
@@ -15,10 +15,11 @@ desc "Wizard for a new post in #{posts_dir}"
 task :new do
   puts "What should we call this post for now?"
   title = STDIN.gets.chomp
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  date = Time.now.strftime('%Y-%m-%d')
+  filename = "#{posts_dir}/#{date}-#{slug}.#{new_post_ext}"
 
   mkdir_p "#{posts_dir}"
-  date = Time.now.strftime('%Y-%m-%d')
-  filename = "#{posts_dir}/#{date}-#{title.to_url}.#{new_post_ext}"
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     system "mkdir -p #{posts_dir}/";
