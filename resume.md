@@ -5,10 +5,21 @@ typekit: jks2qci
 experience:
 - type: Experience
   items:
-  - name: Consultant
-    dates: Feburary 2017 onward
+  - name: Microsoft
+    dates: June 2021 onward
+    title: Software Engineer II
     description: |
-      Since 2017, I have been a contractor working with various companies to
+      I am currently employed by Microsoft, where I work on the [Lobe desktop
+      app](https://www.lobe.ai) --- an Electron-powered desktop application
+      designed to make machine learning accessible to anyone. I have worked on
+      the user interface for image classification, systems for exporting ONNX
+      models to Microsoft's Power Platform, and integration of the Lobe and
+      Microsoft Fluent design languages.
+
+  - name: Consultant
+    dates: Feburary 2017 to June 2021
+    description: |
+      For four years, I was a contractor working with various companies to
       design and program software.
 
       Through [Oak](https://oak.is), I helped design and build [the School for
@@ -27,7 +38,7 @@ experience:
       supply chain and garment embellishment information more visible on their
       [Locker Room](https://lockerroom.adidas.co.uk) team ordering storefront.
 
-      Currently, I am working with Viacom on a project under NDA.
+      Through Reaktor, I also worked with Viacom on a project under NDA.
 
       All this work has touched many different technologies, including
       Kubernetes, AWS, React, GraphQL, Python, Ruby, Typescript, Swagger, gRPC,
