@@ -1,6 +1,6 @@
 ---
 layout: resume
-email: adrian@schaedle.me
+email: adrian@schaedle.dev
 typekit: jks2qci
 print_message: |
   This resume was generated from a web page available at
