@@ -2,6 +2,10 @@
 layout: resume
 email: adrian@schaedle.me
 typekit: jks2qci
+print_message: |
+  This resume was generated from a web page available at
+  [https://adrian.schaedle.dev/resume](https://adrian.schaedle.dev/resume).
+  I encourage you to look at that version!
 experience:
 - type: Experience
   items:
