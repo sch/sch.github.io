@@ -1,17 +1,19 @@
 ---
 title: The Design Principles Behind Smalltalk
-layout: default
+layout: paper
 ---
 
 
 The Design Principles Behind Smalltalk
 ======================================
 
-Daniel H H Ingalls
-Learning Research Group
-Xerox Palo Alto Research Center
-3333 Coyote Hill Rd
-Palo Alto CA 94304
+_Editor's note: This essay originally appeared in the August 1981 edition of BYTE Magazine. A PDF scan can be found [here](ingalls-design-principles-behind-smalltalk.pdf)._
+
+- Daniel H H Ingalls
+- Learning Research Group
+- Xerox Palo Alto Research Center
+- 3333 Coyote Hill Rd
+- Palo Alto CA 94304
 
 
 The purpose of the Smalltalk project is to provide computer support for the creative spirit in everyone. Our work flows from a vision that includes a creative individual and the best computing hardware available. We have chosen to concentrate on two principal areas of research: a language of description (programming language) that serves as an interface between the models in the human mind and those in computing hardware, and a language of interaction (user interface) that matches the human communication system to that of the computer. Our work has followed a two- to four-year cycle that can be seen to parallel the scientific method:
@@ -30,7 +32,8 @@ The point here is that the human potential manifests itself in individuals. To r
 
 **Good Design:** _A system should be built with a minimum set of unchangeable parts; those parts should be as general as possible; and all parts of the system should be held in a uniform framework._
 
-## Language
+Language
+--------
 
 In designing a language for use with computers, we do not have to look far to find helpful hints. Everything we know about how people think and communicate is applicable. The mechanisms of human thought and communication have been engineered for millions of years, and we should respect them as being of sound design. Moreover, since we must work with this design for the next million years, it will save time if we make our computer models compatible with the mind, rather than the other way around.
 
@@ -38,8 +41,10 @@ Figure 1 illustrates the principal components in our discussion. A person is rep
 
 **Purpose of Language:** _To provide a framework for communication._
 
-![figure 1](figure-1.png)
-_ The scope of language design. Communication between two people (or between one person and a computer) includes communication on two levels. Explicit communication included the information that is transmitted in a given message. Implicit communication includes the relevant assumptions common to the two beings.
+<figure>
+  <img src="/papers/design-principles-behind-smalltalk/figure-1.png" alt="A diagram depicting explicit communication occurring between two bodies and implicit communication occurring between two minds." />
+  <figcaption>The scope of language design. Communication between two people (or between one person and a computer) includes communication on two levels. Explicit communication included the information that is transmitted in a given message. Implicit communication includes the relevant assumptions common to the two beings.</figcaption>
+</figure>
 
 The interaction between two individuals is represented in figure 1 as two arcs. The solid arc represents explicit communication: the actual words and movements uttered and perceived. The dashed arc represents implicit communication: the shared culture and experience that forms the context of the explicit communication. In human interaction, much of the actual communication is achieved through reference to the shared context, and human language is built around such allusion. This is the case with computers as well.
 
@@ -49,7 +54,8 @@ It is no coincidence that a computer can be viewed as one of the participants in
 
 This fact is responsible for the difficult of explaining Smalltalk to people who view computer languages in a more restricted sense. Smalltalk is not simply a better way of organizing procedures or a different technique for storage management. It is not just an extensible hierarchy of data types or a graphical user interface. It is all of these things and anything else that is needed to support the interactions shown in figure 1.
 
-## Communicating Objects
+Communicating Objects
+---------------------
 
 The mind observes a vast universe of experience, both immediate and recorded. One can derive a sense of oneness with the universe simply by letting this experience be, just as it is. However, if one wishes to participate, literally to _take a part_, in the universe, one must draw distinctions. In so doing one identifies an object in the universe, and simultaneously all the rest becomes not-that-object. Distinction by itself is a start, but the process of distinguishing does not get any easier. Every time you want to talk about "that chair over there," you have to repeat the entire process of distinguishing that chair. This is where the act of reference comes in: we can associate a unique identifier with an object, and, from that time on, only the mention of that identifier is necessary to refer to the original object.
 
@@ -75,10 +81,13 @@ Smalltalk provides a much cleaner solution: it sends the _name_ of the desired o
 
 Examples of success in this area include LISP, which is built on the model of linked structures; APL, which is built on the model of arrays; and Smalltalk, which is built on the model of communicating objects. In each case, large applications are viewed in the same way as the fundamental units from which system is built. In Smalltalk especially, the interaction between the most primitive objects is viewed in the same way as the highest-level interactions between the computer and its user. Every object in Smalltalk, even a lowly integer, has a set of messages, a _protocol_, that defines the explicit communication to which that object can respond. Internally, objects may have local storage and access to other shared information which comprise the implicit context of all communication. For instance, the message + 5 (add five) carries an implicit assumption that the augend is the present value of the number receiving the message.
 
-## Organization
+Organization
+------------
 
-![Figure 2][./figure-2.png]
-_System complexity. As the number of components in a system increases, the chances for unwanted interaction increase rapidly. Because of this, a computer language should be designed to minimize the possibilities of such interdependence._
+<figure>
+  <img src="/papers/design-principles-behind-smalltalk/figure-2.png" alt="A diagram with all possible combinations of connections drawn between five circles." />
+  <figcaption>System complexity. As the number of components in a system increases, the chances for unwanted interaction increase rapidly. Because of this, a computer language should be designed to minimize the possibilities of such interdependence.</figcaption>
+</figure>
 
 A uniform metaphor provides a framework in which complex systems can be built. Several related organizational principles contribute to the successful management of complexity. To begin with:
 
@@ -116,7 +125,8 @@ The benefits of structure for implementers are obvious. To begin with, there wil
 
 The Smalltalk virtual machine establishes an object-oriented model for storage, a message-oriented model for processing, and a bitmap model for visual display of information. Through the use of microcode, and ultimately hardware, system performance can be improved dramatically without any compromise to the other virtues of the system.
 
-## User Interface
+User Interface
+--------------
 
 A user interface is simply a language in which most of the communication is visual. Because visual presentation overlaps heavily with established human culture, esthetics, plays a very important role in this area. Since all capability of a computer system is ultimately delivered through the user interface, flexibility is also essential here. An enabling condition for adequate flexibility is also essential here. An enabling condition for adequate flexibility of a user interface can be stated as an object oriented principle:
 
@@ -143,7 +153,8 @@ Here are some examples of conventional operating system components that have bee
 
 Smalltalk has no "operating system" as such. The necessary primitive operations, such as reading a page from the disk, are incorporated as primitive methods in response to otherwise normal Smalltalk messages.
 
-## Future Work
+Future Work
+-----------
 
 As might be expected, work remains to be done on Smalltalk. The easiest part to describe is the continued application of the principles in this paper. For example, the Smalltalk-80 system falls short in its factoring because it supports only hierarchical inheritance. Future Smalltalk systems will generalize this model to arbitrary (multiple) inheritance. Also, message protocols have not been formalized. The organization provides for protocols, but it is currently not a matter of style for protocols, but it is currently only a matter of style for protocols to be consistent from one class to another. This can be remedied easily by providing proper protocol objects that can be consistently shared. This will then allow formal typing of variables by protocol without losing the advantages of polymorphism.
 
