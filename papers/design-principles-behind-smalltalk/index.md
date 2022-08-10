@@ -7,14 +7,13 @@ layout: paper
 The Design Principles Behind Smalltalk
 ======================================
 
-_Editor's note: This essay originally appeared in the August 1981 edition of BYTE Magazine. A PDF scan can be found [here](ingalls-design-principles-behind-smalltalk.pdf)._
-
 - Daniel H H Ingalls
 - Learning Research Group
 - Xerox Palo Alto Research Center
 - 3333 Coyote Hill Rd
 - Palo Alto CA 94304
 
+_Editor's note: This essay originally appeared in the August 1981 edition of BYTE Magazine. A PDF scan can be found [here](ingalls-design-principles-behind-smalltalk.pdf)._
 
 The purpose of the Smalltalk project is to provide computer support for the creative spirit in everyone. Our work flows from a vision that includes a creative individual and the best computing hardware available. We have chosen to concentrate on two principal areas of research: a language of description (programming language) that serves as an interface between the models in the human mind and those in computing hardware, and a language of interaction (user interface) that matches the human communication system to that of the computer. Our work has followed a two- to four-year cycle that can be seen to parallel the scientific method:
 
