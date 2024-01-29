@@ -10,15 +10,16 @@ experience:
 - type: Experience
   items:
   - name: Microsoft
-    dates: June 2021 onward
+    dates: June 2021 to October 2023
     title: Software Engineer II
     description: |
-      I am currently employed by Microsoft, where I work on the [Lobe desktop
-      app](https://www.lobe.ai) --- an Electron-powered desktop application
-      designed to make machine learning accessible to anyone. I have worked on
-      the user interface for image classification, systems for exporting ONNX
-      models to Microsoft's Power Platform, and integration of the Lobe and
-      Microsoft Fluent design languages.
+      At Microsoft, I worked on [Lobe](https://www.lobe.ai) --- an
+      Electron-powered desktop application designed to make machine learning
+      accessible to anyone. I have worked on the user interface for image
+      classification, systems for exporting ONNX models to Microsoft's Power
+      Platform, and integration of the Lobe and Microsoft Fluent design
+      languages. I also contributed to the Adaptive Cards project, providing
+      rich user interfaces for responses to AI Copilot ChatGPT conversations.
 
   - name: Consultant
     dates: Feburary 2017 to June 2021
