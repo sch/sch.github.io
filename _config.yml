@@ -12,8 +12,18 @@ exclude:
 
 typekit: zal0bho
 
+collections:
+  notes:
+    output: true
+    sort_by: "date"
+
 defaults:
 - scope:
     type: "posts"
   values:
     author: "Adrian Schaedle"
+- scope:
+    path: ""
+    type: "notes"
+  values:
+    layout: "note"
