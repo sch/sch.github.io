@@ -16,3 +16,5 @@ period:
     - [Thoru Yamamoto Hypercards](https://archive.org/details/thoru-yamamoto-hypercard-stacks)
     - [Mysterous Drug Store](https://archive.org/details/hypercard_mysterious-drug-store)
     - [Mole Hole/Pumpkin House](https://www.gingerbeardman.com/thoru/molehole/)
+- [The Seven Colors: Legend of PSY・S City](https://macintoshgarden.org/games/the-seven-colors-legend-of-psy-s-city), the first game of Masaya Matsuura
+- [Chop Suey and other works of Theresa Duncan](https://rhizome.org/editorial/2014/nov/26/field-90s-barbieland-wreckage-chop-suey-got-gaming/)
