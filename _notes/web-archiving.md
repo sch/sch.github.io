@@ -20,3 +20,7 @@ the sites were crawled.
 Archive.org crawls an entire site in a sitting and then makes it possible to
 visit the same url at different points in time.
 
+[Perma.cc](https://perma.cc) hosts WARC copies of individual webpages suitable
+for academic citation. To combat linkrot, the website has a [contingency
+plan](https://perma.cc/contingency-plan) to act as a forwarding service should
+the project fail for hosting purposes.
