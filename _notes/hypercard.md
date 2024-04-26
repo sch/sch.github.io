@@ -7,5 +7,6 @@ creation software environments.
 
 [Douglas Adams on Hypercard](https://arbesman.substack.com/p/open-ended-software-as-human-beings)
 [hacker news item](https://news.ycombinator.com/item?id=34324169)
-[Decker]: http://beyondloom.com/decker/
+[Decker](http://beyondloom.com/decker/)
 [Jonathan Dahan's mini vMac wrapper](https://github.com/jedahan/hypermac)
+[News about Hypercard 3.0 (1996)](https://folkstream.com/muse/teachhc/hc3.html)

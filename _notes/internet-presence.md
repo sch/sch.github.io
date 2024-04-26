@@ -19,3 +19,4 @@ of the good ones:
 - [Linus Rogge](https://linusrogge.com)
 - [Gemma Copeland](https://gemmacope.land)
 - [Yihui Hu](https://www.yihui.work)
+- [Robin Rendle](https://robinrendle.com/notes/)

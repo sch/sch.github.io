@@ -45,3 +45,7 @@ difference between a bad interface and a merely unfamiliar one.
 
 
 [Don Norman, _Technology First, Needs Last_](https://jnd.org/technology-first-needs-last/)
+
+[Carnegie Mellon Future Interfaces Group]: https://www.figlab.com/research
+
+

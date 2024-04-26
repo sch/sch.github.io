@@ -14,3 +14,7 @@ hypertext/interactive fiction that acts as a boot ROM. The UI replicates Classic
 Mac OS with some modern features. A space explorer returns to earth after a 100
 year journey to find it abandoned, you piece together what happened by reading
 scraps of documents.
+
+[Matt Sephton's ipad mac]: https://blog.gingerbeardman.com/2021/04/17/turning-an-ipad-pro-into-the-ultimate-classic-macintosh/
+[infinite mac's cd rom subsystem]: https://blog.persistent.info/2023/08/infinite-mac-cd-roms.html
+[Alter Ego, a proto twine game?]: https://www.mobygames.com/game/2194/alter-ego/

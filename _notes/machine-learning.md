@@ -16,3 +16,6 @@ new associations between words by dragging and dropping them.
 [open-interpreter](https://openinterpreter.com), ai-assisted command-line
 interactions.
 
+[Alan Kay's thoughts] on AI.
+
+[Alan Kay's thoughts]: https://www.quora.com/What-does-Alan-Kay-think-about-programming-and-teaching-programming-with-copilots-and-LLMs-of-today

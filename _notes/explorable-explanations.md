@@ -9,3 +9,6 @@ subject.
 Nathan Manousos explains [how to make a tvOS-inspired
 menu](https://www.nathanmanousos.com/posts/chonky-menu) in the browser, with
 a lot of tools to visualize the sizing and animations of hovered elements.
+
+Toby Schachman's [Apparatus](http://aprt.us) is an explorable graphics editor
+for modelling in the "stop drawing dead fish" mold.

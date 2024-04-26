@@ -24,3 +24,8 @@ visit the same url at different points in time.
 for academic citation. To combat linkrot, the website has a [contingency
 plan](https://perma.cc/contingency-plan) to act as a forwarding service should
 the project fail for hosting purposes.
+
+
+[intro to WARC]: https://archive-it.org/post/the-stack-warc-file/
+[WACZ spec]: https://specs.webrecorder.net/wacz/1.1.1/
+[webrecorder]: https://webrecorder.net

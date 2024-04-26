@@ -12,3 +12,4 @@ Avoiding the "pictures under glass" problem, projection can map a display to you
 [lantern-github]: https://github.com/nordprojects/lantern
 [lantern-github-channels]: https://github.com/nordprojects/lantern/tree/fa015faa1c9f4f500bc14074a3485750aecf14e1/things/src/main/java/com/example/androidthings/lantern/channels
 [uobeam-projector]: https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=laser+uobeam+projector&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=uo+beam+projector
+[apple patent]: https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11740689
