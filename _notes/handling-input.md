@@ -17,3 +17,4 @@ a lot of systems.
 [Patrick Dubroy]: https://dubroy.com/blog/three-ways-of-handling-user-input/
 [his follow up]: https://dubroy.com/blog/handling-user-input-with-structured-concurrency/
 
+[Marijn's talk about the dom]:https://www.youtube.com/watch?v=FwPtnR5Fxf0

@@ -9,6 +9,17 @@ print_message: |
 experience:
 - type: Experience
   items:
+  - name: Scripto
+    dates: Since September 2024
+    title: Lead Software Engineer
+    description: |
+      At [Scripto](https://www.scripto.live/), I lead the development of a
+      collaborative script editor for film and television. I am responsible
+      for the React and Prosemirror-based clientside app, the design of our
+      syncing services to support snapshots and revisions, and the operation and
+      automation of our infrastructure. Created by Steven Colbert, this editor
+      powers every late night talk show's writer's room in the business.
+
   - name: Microsoft
     dates: June 2021 to October 2023
     title: Software Engineer II
@@ -22,7 +33,7 @@ experience:
       rich user interfaces for responses to AI Copilot ChatGPT conversations.
 
   - name: Consultant
-    dates: Feburary 2017 to June 2021
+    dates: Feburary 2017 to June 2021<br>May 2024 to September 2024
     description: |
       For four years, I was a contractor working with various companies to
       design and program software.

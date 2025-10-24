@@ -30,4 +30,5 @@ someone bringing up [HTMX] (formerly [Intercooler.js]).
 [Turbograft]: https://github.com/Shopify/turbograft
 [Intercooler.js]: https://intercoolerjs.org
 [HTML includes]: https://github.com/whatwg/html/issues/2791
+[htmx is hard to get right]: https://github.com/BookOfCooks/blog/blob/master/htmx-is-hard-so-lets-get-it-right.md
 

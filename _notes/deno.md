@@ -1,0 +1,1 @@
+https://fresh.deno.dev/docs/canary/concepts/islands
