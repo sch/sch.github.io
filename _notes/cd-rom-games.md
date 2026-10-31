@@ -22,3 +22,9 @@ period:
 - [Jungle Park](https://note.com/komitsu/n/nbea8d4c7b235)
 - [Laurie Anderson's Puppet Motel](https://www.mobygames.com/game/40829/laurie-andersons-puppet-motel/)
 - [The works of Toshio Iwai](https://en.wikipedia.org/wiki/Toshio_Iwai)
+
+The Voyager media company had a hand in coming up with the "future of books".
+Mostly cd-rom re-imaginings of existing books, but some truely novel stories
+as well:
+
+- Best of list ([part 1](https://www.filfre.net/2021/06/the-best-of-voyager-part-1/))
